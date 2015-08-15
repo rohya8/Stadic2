@@ -12,7 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
-public class AddStudTeacher extends Activity {
+public class AddStudentTeacher extends Activity {
 
 	private ListView listview;
 
@@ -39,7 +39,7 @@ public class AddStudTeacher extends Activity {
 		objArrayListName.add("Rajesh Mangale");
 		objArrayListName.add("Rohit Wadke");
 
-		AddStudTeacher_customclass Adapter = new AddStudTeacher_customclass(this, objArrayListName);
+		AddStudentTeacherAdapter Adapter = new AddStudentTeacherAdapter(this, objArrayListName);
 		listview.setAdapter(Adapter);
 	}
 

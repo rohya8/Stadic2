@@ -8,7 +8,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ListView;
 
-public class AddStudDepartment extends Activity {
+public class AddStudentDepartment extends Activity {
 
 	private ListView listview;
 
@@ -39,7 +39,7 @@ public class AddStudDepartment extends Activity {
 
 
 
-		AddStud_Department_customclass Adapter = new AddStud_Department_customclass(this, objArrayListName);
+		AddStudentDepartmentAdapter Adapter = new AddStudentDepartmentAdapter(this, objArrayListName);
 		listview.setAdapter(Adapter);
 	}
 

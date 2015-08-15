@@ -5,7 +5,6 @@ import com.resoneuronance.stadic.R.id;
 import com.resoneuronance.stadic.R.layout;
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -25,7 +24,6 @@ public class MyProfileStudent extends Activity implements OnClickListener {
 
 		intialise();
 
-		
 		BtEditProfile.setOnClickListener(this);
 		BtSaveProfile.setOnClickListener(this);
 	}

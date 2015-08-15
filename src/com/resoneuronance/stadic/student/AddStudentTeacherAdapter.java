@@ -3,36 +3,32 @@ package com.resoneuronance.stadic.student;
 import java.util.ArrayList;
 
 import com.resoneuronance.stadic.R;
-import com.resoneuronance.stadic.R.layout;
-import com.resoneuronance.stadic.department.DepartmentNotifyAdaptor.ViewHolder;
+import com.resoneuronance.stadic.student.AddStudentDepartmentAdapter.ViewHolder;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
-public class AddStud_Department_customclass extends BaseAdapter {
-
+public class AddStudentTeacherAdapter extends BaseAdapter {
 
 	private ArrayList<String> name;
 	private ArrayList<Integer> image;
 	Activity context;
 	LayoutInflater inflater;
 
-	public AddStud_Department_customclass(AddStudDepartment addStudDepartment,
+	public AddStudentTeacherAdapter(AddStudentTeacher addStudTeacher,
 			ArrayList<String> objArrayListName) {
 		this.name = objArrayListName;
-		this.context=addStudDepartment;
+		this.context=addStudTeacher;
 
 		inflater = LayoutInflater.from(context);
-
 	}
-
-
 
 	@Override
 	public int getCount() {
@@ -41,17 +37,16 @@ public class AddStud_Department_customclass extends BaseAdapter {
 	}
 
 	@Override
-	public Object getItem(int arg0) {
+	public Object getItem(int position) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public long getItemId(int arg0) {
+	public long getItemId(int position) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
 
 	public class ViewHolder
 	{
@@ -69,8 +64,8 @@ public class AddStud_Department_customclass extends BaseAdapter {
 		if(view == null)
 		{
 			holder = new ViewHolder();
-			view = inflater.inflate(R.layout.activity_add_stud__department_customclass, null);
-			holder.name_tv = (TextView)view.findViewById(R.id.addstudent_department_customclass_textView);
+			view = inflater.inflate(R.layout.activity_add_stud_teacher_customclass, null);
+			holder.name_tv = (TextView)view.findViewById(R.id.addstudent_teacher_customclass_textView);
 			//holder.iv=(ImageView)view.findViewById(R.id.departmentnotify_customimageView);
 			view.setTag(holder);
 		}
@@ -78,8 +73,6 @@ public class AddStud_Department_customclass extends BaseAdapter {
 			holder = (ViewHolder)view.getTag();
 
 		holder.name_tv.setText(name.get(position));
-		//holder.iv.setImageResource(image.get(position));
-		// TODO Auto-generated method stub
 		return view;
 
 	}
