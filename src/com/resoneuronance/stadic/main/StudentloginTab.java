@@ -27,6 +27,7 @@ public class StudentloginTab extends Activity implements OnClickListener
 
 	private AutoCompleteTextView collegename;
 
+	String abc;
 	private Button BtStudentSubmit;
 	private EditText EtStudentUserName,EtStudentPassword;
 
@@ -64,7 +65,7 @@ public class StudentloginTab extends Activity implements OnClickListener
 	private void AutoCompleteTextviewMethod() {
 
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,CoreServerUtils.colleges);
-		
+
 		collegename.setThreshold(1);
 		collegename.setAdapter(adapter);
 
