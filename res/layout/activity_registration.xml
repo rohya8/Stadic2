@@ -1,0 +1,155 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@android:color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_vertical_margin"
+    tools:context="com.resoneuronance.stadic.admin.Registration" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/cardview"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textViewRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:text=" Register "
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="22sp" />
+
+        <EditText
+            android:id="@+id/registration_username_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded"
+            android:drawableLeft="@drawable/userlogin"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:hint="Your Name"
+            android:padding="5dp"
+            android:textColor="@android:color/black" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/registration_emailid_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded"
+            android:drawableLeft="@drawable/messagemail"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:hint=" Your Email "
+            android:padding="5dp"
+            android:textColor="@android:color/black" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/registration_password_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded"
+            android:drawableLeft="@drawable/lock"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:hint=" Enter Password "
+            android:padding="5dp"
+            android:textColor="@android:color/black" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/registration_retypepassword_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded"
+            android:drawableLeft="@drawable/lock"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:hint=" Retype Password "
+            android:padding="5dp" >
+        </EditText>
+
+        <Spinner
+            android:id="@+id/registration_spinnergroup_collegenm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp" />
+
+        <Button
+            android:id="@+id/registration_registerme_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/addtchrbutton"
+            android:padding="5dp"
+            android:text=" Register Me "
+            android:textColor="@android:color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/textViewRegister2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text=" Already Registered ? "
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/registeration_login_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/white"
+                android:text=" Login Here "
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

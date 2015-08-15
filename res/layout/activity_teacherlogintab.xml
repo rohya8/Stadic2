@@ -1,0 +1,79 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginTop="10dp"
+    android:background="@android:color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_vertical_margin"
+    tools:context="com.resoneuronance.stadic.main.TeacherLoginTab" >
+
+    <EditText
+        android:id="@+id/editTextTeacherUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded"
+        android:drawableLeft="@drawable/customer484"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:hint="Teacher&apos;s Username"
+        android:padding="5dp" >
+    </EditText>
+
+    <EditText
+        android:id="@+id/editTextTeacherPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded"
+        android:drawableLeft="@drawable/key48"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:hint="Teacher&apos;s Password"
+        android:padding="5dp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="1" >
+
+        <TextView
+            android:id="@+id/textViewTeacherForgot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50"
+            android:gravity="right"
+            android:text="Forget Password ?"
+            android:textColor="@android:color/black"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonTeacherSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/button"
+        android:padding="10dp"
+        android:text="Submit"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/buttonTeacherSign"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/addtchrbutton"
+        android:padding="10dp"
+        android:text="Register"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>
