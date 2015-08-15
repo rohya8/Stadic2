@@ -17,6 +17,8 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
+/*Utility class for server operations*/
+
 public class CoreServerUtils {
 
 	private static String GET_COLLEGES_URL = "http://192.168.1.104:8080/CampusWebApp/getAllColleges";
