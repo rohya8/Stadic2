@@ -26,7 +26,9 @@ public class AdminLoginTab extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_adminlogintab);
 
 		initialise();
-
+		
+		String abc;
+		//TODO : Changes to be made to fetch colleges
 
 		BtAdminSubmit.setOnClickListener(this);
 
