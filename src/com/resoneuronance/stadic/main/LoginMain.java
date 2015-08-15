@@ -22,6 +22,8 @@ public class LoginMain extends TabActivity {
 
 
 		super.onCreate(savedInstanceState);
+
+		//Hello world
 		setContentView(R.layout.activity_login_main);
 
 		initialise();
