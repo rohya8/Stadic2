@@ -73,11 +73,10 @@ public class TeacherNotifyAdapter extends BaseAdapter
 		if(view == null)
 		{
 			holder = new ViewHolder();
-			view = inflater.inflate(R.layout.activity_teacher__notify_customclass, null);
-			Log.d("sdsd","kkjk");
-			holder.name_tv = (TextView)view.findViewById(R.id.teachernotify_customclass_textView);
-			holder.iv=(ImageView)view.findViewById(R.id.teachernotify_customimageView);
-			holder.notify_no_tv=(TextView)view.findViewById(R.id.teachernotify_notification_no_textView);
+			view = inflater.inflate(R.layout.activity_teacher_notification_list_adapter, null);
+			holder.name_tv = (TextView)view.findViewById(R.id.teachernotificationlist_adapter_textView);
+			holder.iv=(ImageView)view.findViewById(R.id.teachernotificationlist_adapter_imageView);
+			holder.notify_no_tv=(TextView)view.findViewById(R.id.teachernotificationlist_adapter_notification_no_textView);
 			view.setTag(holder);
 		}
 		else
@@ -86,7 +85,6 @@ public class TeacherNotifyAdapter extends BaseAdapter
 		holder.name_tv.setText(name.get(position));
 		holder.iv.setImageResource(image.get(position));
 		holder.notify_no_tv.setText(notify_no.get(position));
-		// TODO Auto-generated method stub
 		return view;
 
 	}

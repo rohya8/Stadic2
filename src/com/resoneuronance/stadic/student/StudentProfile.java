@@ -6,23 +6,19 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.resoneuronance.stadic.R;
 import com.resoneuronance.stadic.department.DepartmentNotify;
-import com.resoneuronance.stadic.student.notification.AddStudDepartment;
-import com.resoneuronance.stadic.student.notification.AddStudTeacher;
 import com.resoneuronance.stadic.student.notification.TeacherNotify;
 
-public class StudentProfile extends Activity implements OnClickListener {
+public class StudentProfile extends Activity{
 
 
 	private ListView listview;
-	private Button BtAddTeacher,BtAddDept;
+
 
 	ArrayList<String> objArrayListName = new ArrayList<String>();
 	ArrayList<Integer> objArrayListImage = new ArrayList<Integer>();
@@ -61,8 +57,7 @@ public class StudentProfile extends Activity implements OnClickListener {
 			}
 		});
 
-		BtAddDept.setOnClickListener(this);
-		BtAddTeacher.setOnClickListener(this);
+
 
 	}
 
@@ -88,28 +83,8 @@ public class StudentProfile extends Activity implements OnClickListener {
 	private void initialise() {
 
 		listview = (ListView)findViewById(R.id.student_profile_listview);
-		BtAddTeacher=(Button) findViewById(R.id.student_profile_Addteachr_button);
-		BtAddDept=(Button) findViewById(R.id.student_profile_Adddeparment_button);
 
 	}
 
 
-	@Override
-	public void onClick(View view) {
-
-		switch(view.getId())
-		{
-		case R.id.student_profile_Adddeparment_button:
-			Intent i = new Intent(StudentProfile.this,AddStudDepartment.class);
-			startActivity(i);
-			break;
-
-		case R.id.student_profile_Addteachr_button:
-			Intent i1 = new Intent(StudentProfile.this,AddStudTeacher.class);
-			startActivity(i1);
-
-			break;
-
-		}
-	}
 }

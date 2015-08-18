@@ -62,7 +62,7 @@ public class MainStudentProfile extends TabActivity {
 		tabNotification.setContent(new Intent(MainStudentProfile.this,StudentProfile.class));
 
 		tabSetting.setIndicator("",ressources.getDrawable(R.drawable.gear39) );
-		tabSetting.setContent(new Intent(MainStudentProfile.this,StudentProfile.class));
+		tabSetting.setContent(new Intent(MainStudentProfile.this,StudentProfileOptions.class));
 
 
 		tabHostStudentProfile.addTab(tabProfile);

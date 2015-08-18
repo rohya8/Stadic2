@@ -1,6 +1,8 @@
 
 package com.resoneuronance.stadic.main;
 
+import javax.xml.datatype.Duration;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,10 +12,13 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
+import com.resoneuronance.campus.web.util.Constants;
 import com.resoneuronance.stadic.R;
+import com.resoneuronance.stadic.student.LoginAsynctask;
 import com.resoneuronance.stadic.student.MainStudentProfile;
+import com.resoneuronance.stadic.student.StudentServerUtils;
 
 public class StudentloginTab extends Activity implements OnClickListener 
 {
@@ -28,8 +33,10 @@ public class StudentloginTab extends Activity implements OnClickListener
 	private AutoCompleteTextView collegename;
 
 	String abc;
-	private Button BtStudentSubmit;
-	private EditText EtStudentUserName,EtStudentPassword;
+	private Button btStudentSubmit;
+	private EditText etStudentUserName,etStudentPassword;
+
+	private AutoCompleteTextView avCollegeName;
 
 
 	@Override
@@ -42,8 +49,7 @@ public class StudentloginTab extends Activity implements OnClickListener
 
 		AutoCompleteTextviewMethod();
 
-		BtStudentSubmit.setOnClickListener(this);
-
+		btStudentSubmit.setOnClickListener(this);
 	}
 
 
@@ -51,11 +57,11 @@ public class StudentloginTab extends Activity implements OnClickListener
 
 		collegename = (AutoCompleteTextView)findViewById(R.id.collgename_autocomplete);
 
-		EtStudentUserName=(EditText) findViewById(R.id.editTextStudentUsername);
-		EtStudentPassword=(EditText) findViewById(R.id.editTextStudentPassword);
+		etStudentUserName=(EditText) findViewById(R.id.editTextStudentUsername);
+		etStudentPassword=(EditText) findViewById(R.id.editTextStudentPassword);
+		avCollegeName = (AutoCompleteTextView) findViewById(R.id.collgename_autocomplete);
 
-
-		BtStudentSubmit=(Button) findViewById(R.id.buttonStudentSubmit);
+		btStudentSubmit=(Button) findViewById(R.id.buttonStudentSubmit);
 
 
 
@@ -75,16 +81,11 @@ public class StudentloginTab extends Activity implements OnClickListener
 	@Override
 	public void onClick(View view) {
 
-		Intent intent=null;
-
 		switch (view.getId()) {
 		case R.id.buttonStudentSubmit:
-			intent=new Intent(StudentloginTab.this,MainStudentProfile.class);
-			startActivity(intent);
+			CoreServerUtils.shareRegId(this);
+			new LoginAsynctask(this).execute(etStudentUserName.getText().toString(),etStudentPassword.getText().toString(),avCollegeName.getText().toString());
 			break;
-
-
-
 		}
 	}
 
