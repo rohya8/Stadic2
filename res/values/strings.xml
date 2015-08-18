@@ -30,5 +30,6 @@
     <string name="title_activity_department_notification_list_adapter">DepartmentNotificationListAdapter</string>
     <string name="title_activity_admin_profile_adapter">AdminProfileAdapter</string>
     <string name="title_activity_department_notify">Department Notify</string>
+    <string name="title_activity_student_profile_options">Student Options</string>
 
 </resources>

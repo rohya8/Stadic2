@@ -44,11 +44,6 @@
         <activity
             android:name=".main.AdminLoginTab"
             android:label="@string/title_activity_adminlogintab" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".main.StudentloginTab"
@@ -117,6 +112,11 @@
         <activity
             android:name=".student.MainStudentProfile"
             android:label="@string/title_activity_main_student_profile" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".student.notification.TeacherNotificationList"
@@ -135,12 +135,16 @@
             android:label="@string/title_activity_department_notification_list_adapter" >
         </activity>
         <activity
-            android:name="com.resoneuronance.stadic.admin.AdminProfileAdapter"
+            android:name=".admin.AdminProfileAdapter"
             android:label="@string/title_activity_admin_profile_adapter" >
         </activity>
         <activity
-            android:name="com.resoneuronance.stadic.department.DepartmentNotify"
+            android:name=".department.DepartmentNotify"
             android:label="@string/title_activity_department_notify" >
+        </activity>
+        <activity
+            android:name="com.resoneuronance.stadic.student.StudentProfileOptions"
+            android:label="@string/title_activity_student_profile_options" >
         </activity>
     </application>
 
