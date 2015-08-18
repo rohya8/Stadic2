@@ -1,7 +1,9 @@
 package com.resoneuronance.stadic.main;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -11,11 +13,10 @@ import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.client.RestTemplate;
 
-import com.google.gson.Gson;
-
-import android.os.AsyncTask;
+import android.app.Activity;
 import android.util.Log;
-import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 /*Utility class for server operations*/
 
@@ -36,29 +37,25 @@ public class CoreServerUtils {
 	
 	private static List<String> retrieveCollegeNames() {
 		List<String> collegeNames = new ArrayList<String>();
-		HttpHeaders requestHeaders = new HttpHeaders();
-		// requestHeaders.setContentType(new MediaType("text", "xml"));
-		HttpEntity<String> requestEntity = new HttpEntity<String>(requestHeaders);
-		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
-		ResponseEntity<String> responseEntity = restTemplate.exchange(GET_COLLEGES_URL, HttpMethod.POST, requestEntity,
-				String.class);
-		Log.d("Colleges Received ..", responseEntity.getBody());
+		Map<String, Object> uriVariables = new HashMap<String, Object>();
+		ResponseEntity<String> responseEntity = postServerCall(GET_COLLEGES_URL,uriVariables);
 		collegeNames = new Gson().fromJson(responseEntity.getBody(), List.class);
 		return collegeNames;
 	}
-	
-	public static AsyncTask<Void,Void,String> shareRegIdTask() {
-		return new AsyncTask<Void, Void, String>() {
-			protected String doInBackground(Void[] params) {
-				CoreServerUtils.getAllColleges();
-				return "Got Colleges!";
-			};
 
-			protected void onPostExecute(String result) {
-				//Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
-			};
-		};
+	public static ResponseEntity<String> postServerCall(String url,Map<String, Object> uriVariables) {
+		HttpHeaders requestHeaders = new HttpHeaders();
+		//requestHeaders.setContentType(new MediaType("text", "xml"));
+		HttpEntity<String> requestEntity = new HttpEntity<String>(requestHeaders);
+		RestTemplate restTemplate = new RestTemplate();
+		restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
+		ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity,String.class,uriVariables);
+		Log.d("Colleges Received ..", responseEntity.getBody());
+		return responseEntity;
+	}
+	
+	public static void shareRegId(Activity context) {
+		GCMUtil.registerGCM(context);
 	}
 	
 }
