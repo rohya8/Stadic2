@@ -23,7 +23,7 @@ public class CoreServerUtils {
 
 	private static String GET_COLLEGES_URL = "http://192.168.1.104:8080/CampusWebApp/getAllColleges";
 	public static String[] colleges = {""};
-	
+
 	public static String[] getAllColleges() {
 		List<String> collegeNames = retrieveCollegeNames();
 		if(CollectionUtils.isEmpty(collegeNames)) {
@@ -33,7 +33,7 @@ public class CoreServerUtils {
 		colleges = collegeNames.toArray(colleges);
 		return colleges;
 	}
-	
+
 	private static List<String> retrieveCollegeNames() {
 		List<String> collegeNames = new ArrayList<String>();
 		HttpHeaders requestHeaders = new HttpHeaders();
@@ -47,7 +47,7 @@ public class CoreServerUtils {
 		collegeNames = new Gson().fromJson(responseEntity.getBody(), List.class);
 		return collegeNames;
 	}
-	
+
 	public static AsyncTask<Void,Void,String> shareRegIdTask() {
 		return new AsyncTask<Void, Void, String>() {
 			protected String doInBackground(Void[] params) {
@@ -60,5 +60,5 @@ public class CoreServerUtils {
 			};
 		};
 	}
-	
+
 }
