@@ -14,13 +14,9 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.client.RestTemplate;
 
 import android.app.Activity;
-import android.os.AsyncTask;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.resoneuronance.campus.web.domain.StudentRegID;
-import com.resoneuronance.campus.web.util.Constants;
-import com.resoneuronance.stadic.student.StudentServerUtils;
 
 /*Utility class for server operations*/
 
