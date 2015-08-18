@@ -14,9 +14,13 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.client.RestTemplate;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.resoneuronance.campus.web.domain.StudentRegID;
+import com.resoneuronance.campus.web.util.Constants;
+import com.resoneuronance.stadic.student.StudentServerUtils;
 
 /*Utility class for server operations*/
 
@@ -24,7 +28,7 @@ public class CoreServerUtils {
 
 	private static String GET_COLLEGES_URL = "http://192.168.1.104:8080/CampusWebApp/getAllColleges";
 	public static String[] colleges = {""};
-
+	
 	public static String[] getAllColleges() {
 		List<String> collegeNames = retrieveCollegeNames();
 		if(CollectionUtils.isEmpty(collegeNames)) {
@@ -34,7 +38,7 @@ public class CoreServerUtils {
 		colleges = collegeNames.toArray(colleges);
 		return colleges;
 	}
-
+	
 	private static List<String> retrieveCollegeNames() {
 		List<String> collegeNames = new ArrayList<String>();
 		Map<String, Object> uriVariables = new HashMap<String, Object>();
@@ -42,16 +46,6 @@ public class CoreServerUtils {
 		collegeNames = new Gson().fromJson(responseEntity.getBody(), List.class);
 		return collegeNames;
 	}
-<<<<<<< HEAD
-=======
-
-	public static AsyncTask<Void,Void,String> shareRegIdTask() {
-		return new AsyncTask<Void, Void, String>() {
-			protected String doInBackground(Void[] params) {
-				CoreServerUtils.getAllColleges();
-				return "Got Colleges!";
-			};
->>>>>>> refs/remotes/master/master
 
 	public static ResponseEntity<String> postServerCall(String url,Map<String, Object> uriVariables) {
 		HttpHeaders requestHeaders = new HttpHeaders();
@@ -67,5 +61,5 @@ public class CoreServerUtils {
 	public static void shareRegId(Activity context) {
 		GCMUtil.registerGCM(context);
 	}
-
+	
 }
