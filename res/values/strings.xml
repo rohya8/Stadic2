@@ -32,5 +32,6 @@
     <string name="title_activity_department_notify">Department Notify</string>
     <string name="title_activity_student_profile_options">Student Options</string>
     <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="title_activity_my_profile_teacher">MyProfileTeacher</string>
 
 </resources>

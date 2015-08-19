@@ -49,4 +49,13 @@ public class AddStudentTeacher extends Activity {
 
 
 	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) 
+	{
+		// TODO Auto-generated method stub
+		getMenuInflater().inflate(R.menu.addstudteacher,menu);
+		return true;
+	}
+
 }

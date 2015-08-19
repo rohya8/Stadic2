@@ -8,5 +8,14 @@
 	<classpathentry kind="lib" path="libs/gson-2.2.2.jar"/>
 	<classpathentry kind="lib" path="libs/spring-web-4.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="libs/spring-core-4.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/google-play-services.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rajesh Mangale/Desktop/Jars/campus-app.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rajesh Mangale/Desktop/Jars/commons-httpclient-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rajesh Mangale/Desktop/Jars/google-play-services.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rajesh Mangale/Desktop/Jars/gson-2.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rajesh Mangale/Desktop/Jars/hibernate-entitymanager-4.3.5.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rajesh Mangale/Desktop/Jars/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rajesh Mangale/Desktop/Jars/spring-android-core-1.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rajesh Mangale/Desktop/Jars/spring-android-rest-template-1.0.1.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

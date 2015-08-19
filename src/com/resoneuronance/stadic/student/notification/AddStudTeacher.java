@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
 import android.widget.ListView;
 
 public class AddStudTeacher extends Activity {
@@ -21,10 +22,13 @@ public class AddStudTeacher extends Activity {
 	ArrayList<String> objArrayListNotify_no = new ArrayList<String>();
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) 
+	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_stud_teacher);
 
+		
+		
 		initialise();
 
 		listview_data();
@@ -49,4 +53,5 @@ public class AddStudTeacher extends Activity {
 
 
 	}
+	
 }

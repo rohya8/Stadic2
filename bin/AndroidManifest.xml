@@ -31,6 +31,7 @@
 
     <!-- Permission to vibrate -->
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -100,10 +101,16 @@
         <activity
             android:name=".student.notification.AddStudTeacher"
             android:label="@string/title_activity_add_stud_teacher" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".student.AddStudTeacher_customclass"
             android:label="@string/title_activity_add_stud_teacher_customclass" >
+            
         </activity>
         <activity
             android:name=".student.MyProfileStudent"
@@ -144,11 +151,10 @@
         <activity
             android:name=".SplashScreen"
             android:label="@string/title_activity_splash_screen" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MyProfileTeacher"
+            android:label="@string/title_activity_my_profile_teacher" >
         </activity>
     </application>
 
