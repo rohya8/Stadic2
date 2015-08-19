@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 public class AddStudTeacherAdapter extends BaseAdapter {
@@ -69,6 +70,9 @@ public class AddStudTeacherAdapter extends BaseAdapter {
 			//holder.iv=(ImageView)view.findViewById(R.id.departmentnotify_customimageView);
 			view.setTag(holder);
 		}
+		
+//		Teachername tn = getTeachername(position);
+		
 		else
 			holder = (ViewHolder)view.getTag();
 
@@ -77,4 +81,13 @@ public class AddStudTeacherAdapter extends BaseAdapter {
 
 	}
 
+//	private Teachername getTeachername(int position) 
+//	{
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+	
+	
+	
 }
