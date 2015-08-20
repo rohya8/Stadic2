@@ -130,36 +130,40 @@
                         android:textSize="18sp" />
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical" >
-
-            <Button
-                android:id="@+id/myteacher_profile_save_button"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/addtchrbutton"
-                android:padding="15dp"
-                android:text="Save Profile"
-                android:textColor="@android:color/white"
-                android:visibility="gone" />
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
 
-            <Button
-                android:id="@+id/myteacher_profile_edit_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/buttonreset"
-                android:padding="15dp"
-                android:text="Edit Profile"
-                android:textColor="@android:color/white" />
+                <Button
+                    android:id="@+id/myteacher_profile_save_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/addtchrbutton"
+                    android:padding="15dp"
+                    android:text="Save Profile"
+                    android:textColor="@android:color/white"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/myteacher_profile_edit_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/buttonreset"
+                    android:padding="15dp"
+                    android:text="Edit Profile"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

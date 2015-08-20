@@ -19,7 +19,7 @@ import android.widget.TabHost.TabSpec;
 public class MainTeacherProfile extends TabActivity 
 {
 
-	private TabHost tabHostStudentProfile;
+	private TabHost tabHostTeacherProfile;
 	private TabSpec tabProfile,tabNotification,tabSetting;
 
 	@Override
@@ -38,14 +38,14 @@ public class MainTeacherProfile extends TabActivity
 
 		Resources ressources = getResources(); 
 
-		tabHostStudentProfile=getTabHost(); 
+		tabHostTeacherProfile=getTabHost(); 
 
 
-		tabProfile = tabHostStudentProfile.newTabSpec("First Tab");
-		tabNotification = tabHostStudentProfile.newTabSpec("Second Tab");
-		tabSetting = tabHostStudentProfile.newTabSpec("Third Tab");
+		tabProfile = tabHostTeacherProfile.newTabSpec("First Tab");
+		tabNotification = tabHostTeacherProfile.newTabSpec("Second Tab");
+		tabSetting = tabHostTeacherProfile.newTabSpec("Third Tab");
 
-		tabHostStudentProfile.getTabWidget().setDividerDrawable(null);
+		tabHostTeacherProfile.getTabWidget().setDividerDrawable(null);
 		// Set the Tab name and Activity
 		// that will be opened when particular Tab will be selected
 
@@ -59,10 +59,10 @@ public class MainTeacherProfile extends TabActivity
 		tabSetting.setContent(new Intent(MainTeacherProfile.this,StudentProfileOptions.class));
 
 
-		tabHostStudentProfile.addTab(tabProfile);
-		tabHostStudentProfile.addTab(tabNotification);
-		tabHostStudentProfile.addTab(tabSetting);
+		tabHostTeacherProfile.addTab(tabProfile);
+		tabHostTeacherProfile.addTab(tabNotification);
+		tabHostTeacherProfile.addTab(tabSetting);
 
- 
+
 	}
 }
