@@ -1,5 +1,6 @@
 package com.resoneuronance.stadic.student;
 
+import com.resoneuronance.campus.web.bo.domain.Student;
 import com.resoneuronance.stadic.R;
 import com.resoneuronance.stadic.R.id;
 import com.resoneuronance.stadic.R.layout;
@@ -26,7 +27,9 @@ public class MyProfileStudent extends Activity implements OnClickListener
 
 	private Button BtEditProfile,BtSaveProfile;
 	private EditText EtEmail,EtPhone;
-	private TextView TxChangePic;
+	private TextView TxChangePic,txName,txEmail;
+	private Student currentStudent;
+	
 	ImageView profilePic;
 	int position = 0;
 
@@ -39,7 +42,7 @@ public class MyProfileStudent extends Activity implements OnClickListener
 		setContentView(R.layout.activity_my_profile_student);
 
 		ActionBar bar = getActionBar();								               //sets action bar colour
-		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1e8bc3")));
+		//bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1e8bc3")));
 		intialise();
 
 		BtEditProfile.setOnClickListener(this);
@@ -49,13 +52,19 @@ public class MyProfileStudent extends Activity implements OnClickListener
 
 	private void intialise() 
 	{
+		currentStudent = StudentServerUtils.getCurrentStudent(this);
+		
+		txName = (TextView) findViewById(R.id.mystudent_profile_name_tv);
+		txEmail = (TextView) findViewById(R.id.mystudent_profileemail);
 		BtEditProfile=(Button) findViewById(R.id.mystudent_profile_edit_button);
 		BtSaveProfile=(Button) findViewById(R.id.mystudent_profile_save_button);
 		EtEmail=(EditText) findViewById(R.id.mystudent_profile_emailid_et);
 		EtPhone=(EditText) findViewById(R.id.mystudent_profile_phoneno_et);
 		TxChangePic=(TextView)findViewById(R.id.mystudent_profile_changepic_tv);
 		profilePic = (ImageView)findViewById(R.id.mystudent_profile_image_iv);
-
+		
+		txName.setText(currentStudent.getName());
+		txEmail.setText(currentStudent.getEmail());
 	}
 
 	@Override

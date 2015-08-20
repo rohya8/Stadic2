@@ -62,6 +62,7 @@ public class LoginAsynctask extends AsyncTask<String, String, String> {
 		if(!result.equalsIgnoreCase(Constants.RESPONSE_INVALID)){
 			Toast.makeText(mlogin, "Login Successfull !!!", Toast.LENGTH_LONG).show();
 			Intent i=new Intent(mlogin,MainStudentProfile.class);
+			StudentServerUtils.storeCurrentStudent(mlogin, result);
 			mlogin.startActivity(i);
 
 		}

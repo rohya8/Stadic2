@@ -38,7 +38,7 @@ public class MainStudentProfile extends TabActivity {
 
 	private void StudentProfiletab() {
 
-		Resources ressources = getResources(); 
+		Resources resources = getResources(); 
 
 		tabHostStudentProfile=getTabHost(); 
 
@@ -55,13 +55,13 @@ public class MainStudentProfile extends TabActivity {
 		// Set the Tab name and Activity
 		// that will be opened when particular Tab will be selected
 
-		tabProfile.setIndicator("",ressources.getDrawable(R.drawable.silhouette121) );
+		tabProfile.setIndicator("",resources.getDrawable(R.drawable.silhouette121) );
 		tabProfile.setContent(new Intent(MainStudentProfile.this,MyProfileStudent.class));
 
-		tabNotification.setIndicator("",ressources.getDrawable(R.drawable.notifications) );
+		tabNotification.setIndicator("",resources.getDrawable(R.drawable.notifications) );
 		tabNotification.setContent(new Intent(MainStudentProfile.this,StudentProfile.class));
 
-		tabSetting.setIndicator("",ressources.getDrawable(R.drawable.gear39) );
+		tabSetting.setIndicator("",resources.getDrawable(R.drawable.gear39) );
 		tabSetting.setContent(new Intent(MainStudentProfile.this,StudentProfileOptions.class));
 
 

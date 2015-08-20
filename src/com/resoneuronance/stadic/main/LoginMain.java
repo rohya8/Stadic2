@@ -65,7 +65,7 @@ public class LoginMain extends TabActivity {
 	private void initialise() {
 
 		tabHostloginmain = (TabHost)findViewById(android.R.id.tabhost);
-		new AsyncTask<Void, Void, String>() {
+		/*new AsyncTask<Void, Void, String>() {
 			protected String doInBackground(Void[] params) {
 				CoreServerUtils.getAllColleges();
 				return "Got Colleges!";
@@ -74,7 +74,7 @@ public class LoginMain extends TabActivity {
 			protected void onPostExecute(String result) {
 				Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
 			};
-		}.execute(null, null, null);
+		}.execute(null, null, null);*/
 	}
 
 }

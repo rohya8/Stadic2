@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
+import com.resoneuronance.campus.web.bo.domain.Student;
 import com.resoneuronance.stadic.R;
 import com.resoneuronance.stadic.department.DepartmentNotify;
 import com.resoneuronance.stadic.student.notification.TeacherNotify;
@@ -18,8 +19,7 @@ public class StudentProfile extends Activity{
 
 
 	private ListView listview;
-
-
+	private Student student;
 	ArrayList<String> objArrayListName = new ArrayList<String>();
 	ArrayList<Integer> objArrayListImage = new ArrayList<Integer>();
 	ArrayList<String> objArrayListNotify_no = new ArrayList<String>();
@@ -70,9 +70,9 @@ public class StudentProfile extends Activity{
 		objArrayListImage.add(R.drawable.userprofile128);
 		objArrayListImage.add(R.drawable.house128);
 
-		objArrayListNotify_no.add("12");
-		objArrayListNotify_no.add("10");
-
+		student = StudentServerUtils.getCurrentStudent(this);
+		objArrayListNotify_no.add(String.valueOf(student.getTeacherNotificationsCount()));
+		objArrayListNotify_no.add(String.valueOf(student.getDepartmentNotificationsCount()));
 
 		StudentProfileAdapter Adapter = new StudentProfileAdapter(this, objArrayListName,objArrayListImage,objArrayListNotify_no);
 		listview.setAdapter(Adapter);

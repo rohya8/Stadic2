@@ -3,7 +3,8 @@ package com.resoneuronance.stadic.student;
 import java.util.HashMap;
 import java.util.Map;
 
-import android.os.AsyncTask;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -26,23 +27,28 @@ public class StudentServerUtils implements AndroidConstants {
 		uriVariables.put(Constants.STUDENT_OBJECT, jsonString);
 		uriVariables.put(Constants.COLLEGE_NAME_ATTR, collegeName);
 		result = CoreServerUtils.postServerCall(LOGIN_URL, uriVariables).getBody();
-		/*AsyncTask<Void, Void, String> studentLoginTask = new AsyncTask<Void, Void, String>() {
-			
-			@Override
-			protected String doInBackground(Void... params) {
-				result = CoreServerUtils.postServerCall(LOGIN_URL, uriVariables).getBody();
-				return result;
-			}
-
-			@Override
-			protected void onPostExecute(String msg) {
-				//Toast.makeText(context,"Logged In!", Toast.LENGTH_LONG).show();
-				Log.d(TAG, msg);
-			}
-		};
-		studentLoginTask.execute(null, null, null);*/
 		Log.d(TAG, "Result of Login :" + result);
 		return result;
+	}
+	
+	public static void storeCurrentStudent(Context context, String student) {
+		SharedPreferences prefs = context.getSharedPreferences(STUDENT_PREFERENCES, Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor = prefs.edit();
+		editor.putString(STUDENT_OBJECT, student);
+		editor.putBoolean(LOGGED_IN, true);
+		editor.commit();
+		Log.d(TAG, "Saved the Student!!");
+	}
+	
+	public static com.resoneuronance.campus.web.bo.domain.Student getCurrentStudent(Context context) {
+		SharedPreferences prefs = context.getSharedPreferences(STUDENT_PREFERENCES, Context.MODE_PRIVATE);
+		String studentJson = prefs.getString(STUDENT_OBJECT, null);
+		com.resoneuronance.campus.web.bo.domain.Student student = new com.resoneuronance.campus.web.bo.domain.Student();
+		if(studentJson != null) {
+			student = new Gson().fromJson(studentJson, com.resoneuronance.campus.web.bo.domain.Student.class);
+			Log.d(TAG, "Got the Student!!");
+		}
+		return student;
 	}
 	
 }

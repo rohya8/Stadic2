@@ -2,7 +2,10 @@ package com.resoneuronance.stadic.student.notification;
 
 import java.util.ArrayList;
 
+import com.resoneuronance.campus.web.bo.domain.Student;
+import com.resoneuronance.campus.web.bo.domain.StudentTeacher;
 import com.resoneuronance.stadic.R;
+import com.resoneuronance.stadic.student.StudentServerUtils;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,7 +19,7 @@ public class TeacherNotify extends Activity {
 
 
 	private ListView listview;
-
+	private Student student;
 	ArrayList<String> objArrayListName = new ArrayList<String>();
 	ArrayList<Integer> objArrayListImage = new ArrayList<Integer>();
 	ArrayList<String> objArrayListNotify_no = new ArrayList<String>();
@@ -40,7 +43,15 @@ public class TeacherNotify extends Activity {
 	}
 
 	private void listview_data(){
-		objArrayListName.add("Rajesh Mangale");
+		
+		student = StudentServerUtils.getCurrentStudent(this);
+		for(StudentTeacher teacher: student.getTeachers()) {
+			objArrayListName.add(teacher.getName());
+			objArrayListImage.add(R.drawable.male1);
+			objArrayListNotify_no.add(String.valueOf(teacher.getNotifications().size()));
+		}
+		
+		/*objArrayListName.add("Rajesh Mangale");
 		objArrayListName.add("Rohit Wadke");
 		objArrayListName.add("Rajesh Mangale");
 		objArrayListName.add("Rohit Wadke");
@@ -61,7 +72,7 @@ public class TeacherNotify extends Activity {
 		objArrayListNotify_no.add("12");
 		objArrayListNotify_no.add("10");
 		objArrayListNotify_no.add("12");
-		objArrayListNotify_no.add("10");
+		objArrayListNotify_no.add("10");*/
 
 
 
