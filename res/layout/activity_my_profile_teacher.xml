@@ -1,7 +1,7 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@android:color/white"
     android:padding="5dp"
     tools:context="${relativePackage}.${activityClass}" >
@@ -13,158 +13,235 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/cardview"
+            android:layout_height="match_parent"
             android:orientation="vertical" >
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/cardview"
                 android:orientation="vertical" >
 
-                <ImageView
-                    android:id="@+id/myteacher_profile_image_iv"
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/find_user" />
-
-                <TextView
-                    android:id="@+id/myteacher_profile_changepic_tv"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Change Photo"
-                    android:visibility="gone" />
-            </LinearLayout>
+                    android:orientation="vertical" >
 
-            <TextView
-                android:id="@+id/myteacher_profile_name_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="Apoorv Tailang"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                    <ImageView
+                        android:id="@+id/myteacher_profile_image_iv"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/find_user" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:paddingLeft="5dp" >
+                    <TextView
+                        android:id="@+id/myteacher_profile_changepic_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Change Photo"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/myteacher_profile_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:text="Apoorv Tailang"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal" >
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:paddingLeft="5dp" >
 
-                    <TextView
-                        android:id="@+id/myteacher_profileemail"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingRight="10dp"
-                        android:text="Email_Id :"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:gravity="center"
+                        android:orientation="horizontal" >
 
-                    <EditText
-                        android:id="@+id/myteacher_profile_emailid_et"
-                        android:layout_width="wrap_content"
+                        <TextView
+                            android:id="@+id/myteacher_profileemail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:text="Email_Id :"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/myteacher_profile_emailid_et"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:editable="true"
+                            android:enabled="false"
+                            android:focusable="true"
+                            android:text="appu@gmail.com"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:paddingLeft="5dp" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:editable="true"
-                        android:enabled="false"
-                        android:focusable="true"
-                        android:text="appu@gmail.com"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp" />
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/myteacher_profile_phonetv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:text="Phone Number :"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/myteacher_profile_phoneno_et"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:editable="true"
+                            android:enabled="false"
+                            android:focusable="true"
+                            android:paddingRight="10dp"
+                            android:text="1234512341"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical" >
+
+                    <Button
+                        android:id="@+id/myteacher_profile_save_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/addtchrbutton"
+                        android:padding="15dp"
+                        android:text="Save Profile"
+                        android:textColor="@android:color/white"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/myteacher_profile_edit_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/buttonreset"
+                        android:padding="15dp"
+                        android:text="Edit Profile"
+                        android:textColor="@android:color/white" />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
+                android:layout_marginTop="20dp"
+                android:background="#EDE6E6"
                 android:orientation="horizontal"
-                android:paddingLeft="5dp" >
+                android:padding="15dp" >
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:src="@drawable/bookclosed" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="horizontal" >
+                    android:text="Curricular Activities" />
 
-                    <TextView
-                        android:id="@+id/myteacher_profile_phonetv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingRight="10dp"
-                        android:text="Phone Number :"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/myteacher_profile_phoneno_et"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:editable="true"
-                        android:enabled="false"
-                        android:focusable="true"
-                        android:paddingRight="10dp"
-                        android:text="1234512341"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp" />
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_textview"
+                    android:gravity="center"
+                    android:text="10" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" >
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#EDE6E6"
+                android:orientation="horizontal"
+                android:padding="15dp" >
 
-                <Button
-                    android:id="@+id/myteacher_profile_save_button"
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/addtchrbutton"
-                    android:padding="15dp"
-                    android:text="Save Profile"
-                    android:textColor="@android:color/white"
-                    android:visibility="gone" />
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:src="@drawable/trophy" />
 
-                <Button
-                    android:id="@+id/myteacher_profile_edit_button"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/buttonreset"
-                    android:padding="15dp"
-                    android:text="Edit Profile"
-                    android:textColor="@android:color/white" />
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Co Curricular Activities" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_textview"
+                    android:gravity="center"
+                    android:text="10" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>
