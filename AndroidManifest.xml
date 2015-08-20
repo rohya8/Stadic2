@@ -145,15 +145,19 @@
         <activity
             android:name=".SplashScreen"
             android:label="@string/title_activity_splash_screen" >
+        </activity>
+        <activity
+            android:name=".MyProfileTeacher"
+            android:label="@string/title_activity_my_profile_teacher" >
+        </activity>
+        <activity
+            android:name=".MainTeacherProfile"
+            android:label="@string/title_activity_main_teacher_profile" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".MyProfileTeacher"
-            android:label="@string/title_activity_my_profile_teacher" >
         </activity>
     </application>
 
