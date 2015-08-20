@@ -1,6 +1,7 @@
 package com.resoneuronance.stadic;
 
 import com.resoneuronance.stadic.main.LoginMain;
+import com.resoneuronance.stadic.student.AddStudentTeacher;
 import com.resoneuronance.stadic.student.MainStudentProfile;
 
 import android.app.Activity;
@@ -38,8 +39,10 @@ public class SplashScreen extends Activity
 				try {
 					sleep(2000);
 
+					Intent i = new Intent(SplashScreen.this,AddStudentTeacher.class);
+					startActivity(i);
 
-					startActivity(new Intent(getApplicationContext(),LoginMain.class));
+					//startActivity(new Intent(getApplicationContext(),AddStudentTeacher.class));
 
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block

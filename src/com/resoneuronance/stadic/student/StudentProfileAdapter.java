@@ -68,9 +68,9 @@ public class StudentProfileAdapter extends BaseAdapter
 		if(view == null)
 		{
 			holder = new ViewHolder();
-			view = inflater.inflate(R.layout.activity_student__profile_customclass, null);
-			holder.NameTv = (TextView)view.findViewById(R.id.studentprofile_customclass_textView);
-			holder.iv=(ImageView)view.findViewById(R.id.student_profile_customimageView);
+			view = inflater.inflate(R.layout.activity_student__profile_adapter, null);
+			holder.NameTv = (TextView)view.findViewById(R.id.studentprofile_adapter_textView);
+			holder.iv=(ImageView)view.findViewById(R.id.student_profile_adapterimageView);
 			holder.NotifyNotv=(TextView)view.findViewById(R.id.student_profile_notification_no_textView);
 			view.setTag(holder);
 		}

@@ -7,7 +7,7 @@
     tools:context="${relativePackage}.${activityClass}" >
 
     <ImageView
-        android:id="@+id/student_profile_customimageView"
+        android:id="@+id/student_profile_adapterimageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -21,7 +21,7 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/studentprofile_customclass_textView"
+            android:id="@+id/studentprofile_adapter_textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

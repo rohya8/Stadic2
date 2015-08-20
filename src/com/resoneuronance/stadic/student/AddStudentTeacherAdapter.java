@@ -64,8 +64,8 @@ public class AddStudentTeacherAdapter extends BaseAdapter {
 		if(view == null)
 		{
 			holder = new ViewHolder();
-			view = inflater.inflate(R.layout.activity_add_stud_teacher_customclass, null);
-			holder.name_tv = (TextView)view.findViewById(R.id.addstudent_teacher_customclass_textView);
+			view = inflater.inflate(R.layout.activity_add_student_teacher_adapter, null);
+			holder.name_tv = (TextView)view.findViewById(R.id.addstudent_teacher_adapter_textView);
 			//holder.iv=(ImageView)view.findViewById(R.id.departmentnotify_customimageView);
 			view.setTag(holder);
 		}

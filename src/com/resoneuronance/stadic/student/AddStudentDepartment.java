@@ -18,7 +18,7 @@ public class AddStudentDepartment extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_add_stud_department);
+		setContentView(R.layout.activity_add_student_department);
 
 		initialise();
 

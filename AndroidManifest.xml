@@ -71,7 +71,7 @@
             android:label="@string/title_activity_registration" >
         </activity>
         <activity
-            android:name=".student.Student_Profile_customclass"
+            android:name=".student.StudentProfileAdapter"
             android:label="@string/title_activity_student__profile_customclass" >
         </activity>
         <activity
@@ -91,26 +91,20 @@
             android:label="@string/title_activity_teacher_notify" >
         </activity>
         <activity
-            android:name=".student.notification.AddStudDepartment"
+            android:name=".student.AddStudentDepartment"
             android:label="@string/title_activity_add_stud_department" >
         </activity>
         <activity
-            android:name=".student.AddStud_Department_customclass"
+            android:name=".student.AddStudentDepartmentAdapter"
             android:label="@string/title_activity_add_stud__department_customclass" >
         </activity>
         <activity
-            android:name=".student.notification.AddStudTeacher"
+            android:name=".student.AddStudentTeacher"
             android:label="@string/title_activity_add_stud_teacher" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
-            android:name=".student.AddStudTeacher_customclass"
+            android:name=".student.AddStudentTeacherAdapter"
             android:label="@string/title_activity_add_stud_teacher_customclass" >
-            
         </activity>
         <activity
             android:name=".student.MyProfileStudent"
@@ -151,6 +145,11 @@
         <activity
             android:name=".SplashScreen"
             android:label="@string/title_activity_splash_screen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".MyProfileTeacher"

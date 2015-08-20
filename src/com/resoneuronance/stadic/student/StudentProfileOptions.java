@@ -2,9 +2,6 @@ package com.resoneuronance.stadic.student;
 
 import com.resoneuronance.stadic.R;
 import com.resoneuronance.stadic.R.layout;
-import com.resoneuronance.stadic.student.notification.AddStudDepartment;
-import com.resoneuronance.stadic.student.notification.AddStudTeacher;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,12 +42,12 @@ public class StudentProfileOptions extends Activity implements OnClickListener {
 		switch(view.getId())
 		{
 		case R.id.student_profile_Adddeparment_button:
-			Intent i = new Intent(StudentProfileOptions.this,AddStudDepartment.class);
+			Intent i = new Intent(StudentProfileOptions.this,AddStudentDepartment.class);
 			startActivity(i);
 			break;
 
 		case R.id.student_profile_Addteachr_button:
-			Intent i1 = new Intent(StudentProfileOptions.this,AddStudTeacher.class);
+			Intent i1 = new Intent(StudentProfileOptions.this,AddStudentTeacher.class);
 			startActivity(i1);
 
 			break;
