@@ -2,6 +2,8 @@ package com.resoneuronance.stadic.student.notification;
 
 import java.util.ArrayList;
 
+import org.apache.commons.collections.CollectionUtils;
+
 import com.resoneuronance.campus.web.bo.domain.Student;
 import com.resoneuronance.campus.web.bo.domain.StudentTeacher;
 import com.resoneuronance.stadic.R;
@@ -20,9 +22,9 @@ public class TeacherNotify extends Activity {
 
 	private ListView listview;
 	private Student student;
-	ArrayList<String> objArrayListName = new ArrayList<String>();
-	ArrayList<Integer> objArrayListImage = new ArrayList<Integer>();
-	ArrayList<String> objArrayListNotify_no = new ArrayList<String>();
+	private ArrayList<String> objArrayListName = new ArrayList<String>();
+	private ArrayList<Integer> objArrayListImage = new ArrayList<Integer>();
+	private ArrayList<String> objArrayListNotify_no = new ArrayList<String>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
@@ -51,30 +53,6 @@ public class TeacherNotify extends Activity {
 			objArrayListNotify_no.add(String.valueOf(teacher.getNotifications().size()));
 		}
 		
-		/*objArrayListName.add("Rajesh Mangale");
-		objArrayListName.add("Rohit Wadke");
-		objArrayListName.add("Rajesh Mangale");
-		objArrayListName.add("Rohit Wadke");
-		objArrayListName.add("Rajesh Mangale");
-		objArrayListName.add("Rohit Wadke");
-
-		objArrayListImage.add(R.drawable.male1);
-		objArrayListImage.add(R.drawable.male1);
-		objArrayListImage.add(R.drawable.male1);
-		objArrayListImage.add(R.drawable.male1);
-		objArrayListImage.add(R.drawable.male1);
-		objArrayListImage.add(R.drawable.male1);
-
-
-
-		objArrayListNotify_no.add("12");
-		objArrayListNotify_no.add("10");
-		objArrayListNotify_no.add("12");
-		objArrayListNotify_no.add("10");
-		objArrayListNotify_no.add("12");
-		objArrayListNotify_no.add("10");*/
-
-
 
 		TeacherNotifyAdapter Adapter = new TeacherNotifyAdapter(this, objArrayListName,objArrayListImage,objArrayListNotify_no);
 		listview.setAdapter(Adapter);
@@ -82,9 +60,14 @@ public class TeacherNotify extends Activity {
 		listview.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View view, int position,
-					long id) {
+			public void onItemClick(AdapterView<?> arg0, View view, int position,long id) {
 				Intent intent=new Intent(TeacherNotify.this,TeacherNotificationList.class);
+				if(CollectionUtils.isNotEmpty(student.getTeachers())) {
+					StudentTeacher teacher = student.getTeachers().get(position);
+					if(teacher != null) {
+						StudentServerUtils.teacherId = teacher.getId();
+					}
+				}
 				startActivity(intent);
 
 			}

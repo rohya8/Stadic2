@@ -1,13 +1,18 @@
 package com.resoneuronance.stadic.student;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.resoneuronance.campus.web.bo.domain.StudentTeacher;
+import com.resoneuronance.campus.web.domain.Notification;
 import com.resoneuronance.campus.web.domain.Student;
 import com.resoneuronance.campus.web.util.Constants;
 import com.resoneuronance.stadic.main.AndroidConstants;
@@ -17,6 +22,7 @@ public class StudentServerUtils implements AndroidConstants {
 
 	private static String LOGIN_URL = "http://192.168.1.104:8080/CampusWebApp/loginStudentAndroid?student={student}&collegeName={collegeName}";
 	private static String result = "";
+	public static int teacherId = 0;
 	
 	public static String studentLogin(String email,String password,String collegeName) {
 		Student student = new Student();
@@ -49,6 +55,18 @@ public class StudentServerUtils implements AndroidConstants {
 			Log.d(TAG, "Got the Student!!");
 		}
 		return student;
+	}
+	
+	public static List<Notification> getTeacherNotifications(Activity context) {
+		List<Notification> notifications = new ArrayList<Notification>();
+		com.resoneuronance.campus.web.bo.domain.Student student = getCurrentStudent(context);
+		for(StudentTeacher teacher:student.getTeachers()) {
+			if(teacher!=null && teacher.getId() == teacherId) {
+				notifications = teacher.getNotifications();
+				break;
+			}
+		}
+		return notifications;
 	}
 	
 }
