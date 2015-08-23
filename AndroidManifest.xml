@@ -39,7 +39,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".main.LoginMain"
+            android:name=".activity.LoginMainActivity"
             android:label="@string/app_name" >
             <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,107 +48,105 @@
             </intent-filter> -->
         </activity>
         <activity
-            android:name=".main.AdminLoginTab"
-            android:label="@string/title_activity_adminlogintab" >
-        </activity>
-        <activity
-            android:name=".main.StudentloginTab"
+            android:name=".activity.student.StudentLoginTabActivity"
             android:label="@string/title_activity_studentlogintab" >
         </activity>
         <activity
-            android:name=".main.TeacherLoginTab"
+            android:name=".activity.teacher.TeacherLoginTabActivity"
             android:label="@string/title_activity_teacherlogintab" >
         </activity>
+        
+        <!--  to be changed -->
         <activity
-            android:name=".teacher.TeacherProfile"
+            android:name=".activity.teacher.TeacherSendNotificationActivity"
             android:label="@string/title_activity_teacher_profile" >
         </activity>
+        
         <activity
-            android:name=".student.StudentProfile"
-            android:label="@string/title_activity_student_profile" >
-        </activity>
-        <activity
-            android:name=".admin.AdminProfile"
-            android:label="@string/title_activity_admin_profile" >
-        </activity>
-        <activity
-            android:name=".main.Registration"
+            android:name=".activity.student.StudentRegistrationActivity"
             android:label="@string/title_activity_registration" >
         </activity>
         <activity
-            android:name=".student.StudentProfileAdapter"
+            android:name=".adapter.student.StudentNotificationOptionsAdapter"
             android:label="@string/title_activity_student__profile_customclass" >
         </activity>
+        
+        <!--  to be changed -->
         <activity
-            android:name=".department.Departmentnotify"
+            android:name=".activity.student.StudentDepartmentNotificationActivity"
             android:label="@string/title_activity_departmentnotify" >
-        </activity>
-        <activity
-            android:name=".department.Department_Notify_customclass"
-            android:label="@string/title_activity_department__notify_customclass" >
         </activity>
         <activity
             android:name=".student.notification.Teacher_Notify_customclass"
             android:label="@string/title_activity_teacher__notify_customclass" >
         </activity>
         <activity
-            android:name=".student.notification.TeacherNotify"
+            android:name=".activity.student.StudentTeacherNotificationActivity"
             android:label="@string/title_activity_teacher_notify" >
         </activity>
+        
+        
         <activity
-            android:name=".student.AddStudentDepartment"
+            android:name=".activity.student.StudentAddDepartmentActivity"
             android:label="@string/title_activity_add_stud_department" >
         </activity>
         <activity
-            android:name=".student.AddStudentDepartmentAdapter"
+            android:name=".adapter.student.StudentAddDepartmentAdapter"
             android:label="@string/title_activity_add_stud__department_customclass" >
         </activity>
         <activity
-            android:name=".student.AddStudentTeacher"
+            android:name=".activity.student.StudentAddTeacherActivity"
             android:label="@string/title_activity_add_stud_teacher" >
         </activity>
         <activity
-            android:name=".student.AddStudentTeacherAdapter"
+            android:name=".adapter.student.StudentAddTeacherAdapter"
             android:label="@string/title_activity_add_stud_teacher_customclass" >
         </activity>
+        
+        <!--  to be changed -->
         <activity
-            android:name=".student.MyProfileStudent"
+            android:name=".activity.student.StudentProfileTabActivity"
             android:label="@string/title_activity_my_profile_student" >
         </activity>
         <activity
-            android:name=".student.MainStudentProfile"
+            android:name=".activity.student.StudentMainActivity"
             android:label="@string/title_activity_main_student_profile" >
         </activity>
         <activity
-            android:name=".student.notification.TeacherNotificationList"
+            android:name=".activity.student.StudentTeacherNotificationsListActivity"
             android:label="@string/title_activity_teacher_notification_list" >
         </activity>
         <activity
-            android:name=".student.notification.TeacherNotificationListAdapter"
+            android:name=".adapter.student.StudentTeacherNotificationAdapter"
             android:label="@string/title_activity_teacher_notification_list_adapter" >
         </activity>
         <activity
-            android:name=".student.notification.DepartmentNotificationList"
+            android:name=".adapter.student.StudentTeacherNotificationListAdapter"
+            android:label="@string/title_activity_teacher_notification_list_adapter" >
+        </activity>
+
+        <activity
+            android:name=".activity.student.StudentDepartmentNotificationsListActivity"
             android:label="@string/title_activity_department_notification_list" >
         </activity>
         <activity
-            android:name=".student.notification.DepartmentNotificationListAdapter"
+            android:name=".adapter.student.StudentDepartmentNotificationAdapter"
+            android:label="@string/title_activity_department_notification_list" >
+        </activity>
+        <activity
+            android:name=".adapter.student.StudentDepartmentNotificationListAdapter"
             android:label="@string/title_activity_department_notification_list_adapter" >
         </activity>
         <activity
-            android:name=".admin.AdminProfileAdapter"
-            android:label="@string/title_activity_admin_profile_adapter" >
-        </activity>
-        <activity
-            android:name=".department.DepartmentNotify"
+            android:name=".activity.student.StudentOptionsTabActivity"
             android:label="@string/title_activity_department_notify" >
         </activity>
         <activity
-            android:name=".student.StudentProfileOptions"
+            android:name=".activity.student.StudentNotificationsTabActivity"
             android:label="@string/title_activity_student_profile_options" >
         </activity>
         <activity
-            android:name=".SplashScreen"
+            android:name=".activity.SplashScreenActivity"
             android:label="@string/title_activity_splash_screen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -156,11 +154,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MyProfileTeacher"
+            android:name=".activity.teacher.TeacherProfileTabActivity"
             android:label="@string/title_activity_my_profile_teacher" >
         </activity>
         <activity
-            android:name=".MainTeacherProfile"
+            android:name=".activity.teacher.TeacherMainActivity"
             android:label="@string/title_activity_main_teacher_profile" >
             <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -170,7 +168,7 @@
         </activity>
         
          <receiver
-            android:name="com.resoneuronance.stadic.student.notification.GCMBroadcastReceiver"
+            android:name="com.resoneuronance.stadic.service.GCMBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
  
@@ -183,7 +181,7 @@
             </intent-filter>
         </receiver>
  
-        <service android:name="com.resoneuronance.stadic.student.notification.GCMNotificationIntentService" />
+        <service android:name="com.resoneuronance.stadic.service.GCMNotificationIntentService" />
         
     </application>
 
