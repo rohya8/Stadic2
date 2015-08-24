@@ -4,12 +4,6 @@ import java.util.ArrayList;
 
 import org.apache.commons.collections.CollectionUtils;
 
-import com.resoneuronance.campus.web.bo.domain.Student;
-import com.resoneuronance.campus.web.bo.domain.StudentTeacher;
-import com.resoneuronance.stadic.R;
-import com.resoneuronance.stadic.adapter.student.StudentTeacherNotificationAdapter;
-import com.resoneuronance.stadic.util.StudentServerUtils;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +11,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+
+import com.resoneuronance.campus.web.bo.domain.Student;
+import com.resoneuronance.campus.web.bo.domain.StudentTeacher;
+import com.resoneuronance.stadic.R;
+import com.resoneuronance.stadic.adapter.student.StudentTeacherNotificationAdapter;
+import com.resoneuronance.stadic.util.StudentUtils;
 
 public class StudentTeacherNotificationActivity extends Activity {
 
@@ -47,7 +47,7 @@ public class StudentTeacherNotificationActivity extends Activity {
 
 	private void listview_data(){
 
-		student = StudentServerUtils.getCurrentStudent(this);
+		student = StudentUtils.getCurrentStudent(this);
 		for(StudentTeacher teacher: student.getTeachers()) {
 			objArrayListName.add(teacher.getName());
 			objArrayListImage.add(R.drawable.male1);
@@ -66,7 +66,7 @@ public class StudentTeacherNotificationActivity extends Activity {
 				if(CollectionUtils.isNotEmpty(student.getTeachers())) {
 					StudentTeacher teacher = student.getTeachers().get(position);
 					if(teacher != null) {
-						StudentServerUtils.teacherId = teacher.getId();
+						StudentUtils.teacherId = teacher.getId();
 					}
 				}
 				startActivity(intent);

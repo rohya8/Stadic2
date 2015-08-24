@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 import com.resoneuronance.campus.web.domain.Notification;
 import com.resoneuronance.stadic.activity.student.StudentTeacherNotificationsListActivity;
 import com.resoneuronance.stadic.util.AndroidConstants;
+import com.resoneuronance.stadic.util.StudentUtils;
 
 public class GCMNotificationIntentService extends IntentService {
 
@@ -73,7 +74,7 @@ public class GCMNotificationIntentService extends IntentService {
 		}
 		
 		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this).setSmallIcon(R.drawable.arrow_up_float)
-				.setContentTitle("Notification from :" + notification.getTeacherId())
+				.setContentTitle("Notification from :" + StudentUtils.getTeacherName(notification.getTeacherId()))
 				.setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
 				.setContentText(notification.getNotification());
 

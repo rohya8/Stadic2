@@ -1,18 +1,10 @@
 package com.resoneuronance.stadic.activity.student;
 
-import com.resoneuronance.campus.web.bo.domain.Student;
-import com.resoneuronance.stadic.R;
-import com.resoneuronance.stadic.R.id;
-import com.resoneuronance.stadic.R.layout;
-import com.resoneuronance.stadic.util.StudentServerUtils;
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -22,6 +14,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.resoneuronance.campus.web.bo.domain.Student;
+import com.resoneuronance.stadic.R;
+import com.resoneuronance.stadic.util.StudentUtils;
 
 public class StudentProfileTabActivity extends Activity implements OnClickListener 
 {
@@ -53,7 +49,7 @@ public class StudentProfileTabActivity extends Activity implements OnClickListen
 
 	private void intialise() 
 	{
-		currentStudent = StudentServerUtils.getCurrentStudent(this);
+		currentStudent = StudentUtils.getCurrentStudent(this);
 		
 		txName = (TextView) findViewById(R.id.mystudent_profile_name_tv);
 		txEmail = (TextView) findViewById(R.id.mystudent_profileemail);

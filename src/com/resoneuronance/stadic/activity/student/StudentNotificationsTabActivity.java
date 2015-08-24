@@ -13,7 +13,7 @@ import android.widget.ListView;
 import com.resoneuronance.campus.web.bo.domain.Student;
 import com.resoneuronance.stadic.R;
 import com.resoneuronance.stadic.adapter.student.StudentNotificationOptionsAdapter;
-import com.resoneuronance.stadic.util.StudentServerUtils;
+import com.resoneuronance.stadic.util.StudentUtils;
 
 public class StudentNotificationsTabActivity extends Activity{
 
@@ -70,7 +70,7 @@ public class StudentNotificationsTabActivity extends Activity{
 		objArrayListImage.add(R.drawable.userprofile128);
 		objArrayListImage.add(R.drawable.house128);
 
-		student = StudentServerUtils.getCurrentStudent(this);
+		student = StudentUtils.getCurrentStudent(this);
 		objArrayListNotify_no.add(String.valueOf(student.getTeacherNotificationsCount()));
 		objArrayListNotify_no.add(String.valueOf(student.getDepartmentNotificationsCount()));
 
