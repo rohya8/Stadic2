@@ -69,10 +69,10 @@ public class StudentDepartmentNotificationAdapter extends BaseAdapter
 		if(view == null)
 		{
 			holder = new ViewHolder();
-			view = inflater.inflate(R.layout.activity_department__notify_customclass, null);
-			holder.name_tv = (TextView)view.findViewById(R.id.departmentnotify_customclass_textView);
+			view = inflater.inflate(R.layout.activity_student_department_notification_list_adapter, null);
+			holder.name_tv = (TextView)view.findViewById(R.id.studentdepartmentnotificationlist_adapter_textView);
 			//holder.iv=(ImageView)view.findViewById(R.id.departmentnotify_customimageView);
-			holder.notify_no_tv=(TextView)view.findViewById(R.id.departmentnotify_notification_no_textView);
+			holder.notify_no_tv=(TextView)view.findViewById(R.id.studentdepartmentnotificationlist_adapter_notificationno_textView);
 			view.setTag(holder);
 		}
 		else

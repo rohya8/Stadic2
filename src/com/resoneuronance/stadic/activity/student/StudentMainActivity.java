@@ -35,10 +35,8 @@ public class StudentMainActivity extends TabActivity {
 
 		tabProfile = tabHostStudentProfile.newTabSpec("First Tab");
 
-
-
-
 		tabNotification = tabHostStudentProfile.newTabSpec("Second Tab");
+
 		tabSetting = tabHostStudentProfile.newTabSpec("Third Tab");
 
 		tabHostStudentProfile.getTabWidget().setDividerDrawable(null);

@@ -58,7 +58,7 @@ public class TeacherMainActivity extends TabActivity
 		tabNotification.setContent(new Intent(TeacherMainActivity.this,TeacherSendNotificationActivity.class));
 
 		tabSetting.setIndicator("",ressources.getDrawable(R.drawable.gear39) );
-		tabSetting.setContent(new Intent(TeacherMainActivity.this,StudentOptionsTabActivity.class));
+		tabSetting.setContent(new Intent(TeacherMainActivity.this,TeacherOptionsTabActivity.class));
 
 
 		tabHostTeacherProfile.addTab(tabProfile);

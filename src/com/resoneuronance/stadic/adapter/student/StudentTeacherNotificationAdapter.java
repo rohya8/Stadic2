@@ -74,10 +74,10 @@ public class StudentTeacherNotificationAdapter extends BaseAdapter
 		if(view == null)
 		{
 			holder = new ViewHolder();
-			view = inflater.inflate(R.layout.activity_teacher_notification_list_adapter, null);
-			holder.name_tv = (TextView)view.findViewById(R.id.teachernotificationlist_adapter_textView);
-			holder.iv=(ImageView)view.findViewById(R.id.teachernotificationlist_adapter_imageView);
-			holder.notify_no_tv=(TextView)view.findViewById(R.id.teachernotificationlist_adapter_notification_no_textView);
+			view = inflater.inflate(R.layout.activity_student_teacher_notification_list_adapter, null);
+			holder.name_tv = (TextView)view.findViewById(R.id.studentteachernotificationlist_adapter_textView);
+			holder.iv=(ImageView)view.findViewById(R.id.studentteachernotificationlist_adapter_imageView);
+			holder.notify_no_tv=(TextView)view.findViewById(R.id.studentteachernotificationlist_adapter_notification_no_textView);
 			view.setTag(holder);
 		}
 		else

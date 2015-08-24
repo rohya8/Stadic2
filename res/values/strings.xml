@@ -34,5 +34,13 @@
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="title_activity_my_profile_teacher">MyProfileTeacher</string>
     <string name="title_activity_main_teacher_profile">MainTeacherProfile</string>
+    <string name="title_activity_student_options_tab">StudentOptionsTabActivity</string>
+    <string name="title_activity_teacher_options_tab">TeacherOptionsTabActivity</string>
+    <string name="title_activity_teacher_department_notification">Teacher Department Notification</string>
+    <string name="title_activity_teacher_department_notification_adapter">TeacherDepartmentNotificationAdapter</string>
+    <string name="title_activity_teacher_department">Department</string>
+    <string name="title_activity_teacher_department_notifications_list">Department Notifications List</string>
+    <string name="title_activity_teacher_department_notification_list_adapter">TeacherDepartmentNotificationListAdapter</string>
+    <string name="title_activity_teacher_registration">TeacherRegistrationActivity</string>
 
 </resources>

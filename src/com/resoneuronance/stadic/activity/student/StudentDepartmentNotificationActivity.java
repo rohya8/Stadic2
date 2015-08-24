@@ -28,7 +28,7 @@ public class StudentDepartmentNotificationActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_department_notify);
+		setContentView(R.layout.activity_student_department_notification);
 
 
 		initialise();
@@ -73,7 +73,7 @@ public class StudentDepartmentNotificationActivity extends Activity {
 
 	private void initialise() {
 		// TODO Auto-generated method stub
-		listview = (ListView)findViewById(R.id.department_notify_list_listview);
+		listview = (ListView)findViewById(R.id.studentdepartment_notification_list_listview);
 	}
 
 

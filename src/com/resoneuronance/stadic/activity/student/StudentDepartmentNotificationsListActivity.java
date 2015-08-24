@@ -26,8 +26,8 @@ public class StudentDepartmentNotificationsListActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_department_notification_list);
-		
+		setContentView(R.layout.activity_student_department_notification_list);
+
 		objArrayListName.add("Defaulter List");
 		objArrayListName.add("Time Table");
 		objArrayListName.add("Exam Dates ");
@@ -44,7 +44,7 @@ public class StudentDepartmentNotificationsListActivity extends Activity {
 		objArrayListNotifyNo.add("2");
 		objArrayListNotifyNo.add("1");
 
-		ListviewDepartmentNotification = (ListView)findViewById(R.id.department_notification_list_listView);
+		ListviewDepartmentNotification = (ListView)findViewById(R.id.studentdepartment_notification_list_listView);
 		StudentDepartmentNotificationListAdapter Adapter = new StudentDepartmentNotificationListAdapter(this, objArrayListName,objArrayListImage,objArrayListNotifyNo);
 		ListviewDepartmentNotification.setAdapter(Adapter);
 	}
