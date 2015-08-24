@@ -1,18 +1,32 @@
 package com.resoneuronance.stadic.activity.teacher;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.resoneuronance.stadic.R;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-
 public class TeacherSendNotificationActivity extends Activity {
 
-	private Spinner spinneryear,spinnerdept,spinnertype;
+	private EditText EtMessage;
+
+	private Button BtType,BtYear,BtDepartment;
+
+	private	ImageButton IbSend,IbAttachment;
+	final Context context = this;
+	private AlertDialog levelDialog;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,48 +35,158 @@ public class TeacherSendNotificationActivity extends Activity {
 
 		initialise();
 
-		spinnerdata();
+		IbAttachment.setOnClickListener(new OnClickListener() 
+		{
+
+			@Override
+			public void onClick(View v)
+			{
+				// TODO Auto-generated method stub
+
+				Intent i = new Intent();
+				i.setAction(Intent.ACTION_GET_CONTENT);
+				i.setType("file/*");
+				startActivity(i);
+
+			}
+
+
+		});
+
+		IbSend.setOnClickListener(new OnClickListener() 
+		{
+
+			@Override
+			public void onClick(View v) 
+			{
+				// TODO Auto-generated method stub
+
+				Toast.makeText(getApplicationContext(), "Message send successfully",Toast.LENGTH_SHORT).show();
+
+			}
+		});
+
+
+		BtType.setOnClickListener(new OnClickListener() 
+		{
+
+
+			@Override
+			public void onClick(View v) 
+			{
+
+				alertSimpleTypeListView();
+
+			}
+		});
+
+
+		BtYear.setOnClickListener(new OnClickListener() 
+		{
+
+
+			@Override
+			public void onClick(View v) 
+			{
+
+				alertSimpleYearListView();
+
+
+
+			}
+		});
+
+
+		BtDepartment.setOnClickListener(new OnClickListener() 
+		{
+
+
+			@Override
+			public void onClick(View v) 
+			{
+
+				alertSimpleDepartmentListView();
+
+
+
+
+			}
+		});
+
+
 	}
 
-	private void spinnerdata() {
+	protected void alertSimpleTypeListView() 
+	{
+		// TODO Auto-generated method stub
 
-		List<String> spyear=new ArrayList<String>();
-		spyear.add(" F.E ");
-		spyear.add(" S.E ");
-		spyear.add(" T.E ");
-		spyear.add(" B.E ");
+		final CharSequence[] items = { "Notes", "Assignment" ,"Other"};
 
-		setspinnerdata(spinneryear,spyear);
+		AlertDialog.Builder builder = new AlertDialog.Builder(TeacherSendNotificationActivity.this);
+		builder.setTitle("Make your selection");
+		builder.setItems(items, new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int item) {
 
-		List<String> spdept=new ArrayList<String>();
-		spdept.add(" Civil ");
-		spdept.add(" Computer ");
-		spdept.add(" Mechanical ");
-		spdept.add(" Electronics ");
+				// will toast your selection
+				//showToast("Name: " + items[item]);
+				BtType.setText(""+items[item].toString());
 
-		setspinnerdata(spinnerdept,spdept);		
+				dialog.dismiss();
 
-		List<String> sptype=new ArrayList<String>();
-		sptype.add(" Notes ");
-		sptype.add(" Assignment ");
-		sptype.add(" Other ");
-
-		setspinnerdata(spinnertype,sptype);
+			}
+		}).show();
 
 	}
 
-	private void setspinnerdata(Spinner spinner, List<String> list) {
+	protected void alertSimpleYearListView() 
+	{
+		// TODO Auto-generated method stub
 
-		ArrayAdapter <String> adapter= new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,list);
-		spinner.setAdapter(adapter);	
+		final CharSequence[] items = { "FE", "SE", "TE", "BE" };
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(TeacherSendNotificationActivity.this);
+		builder.setTitle("Make your selection");
+		builder.setItems(items, new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int item) {
+
+				BtYear.setText(""+items[item].toString());
+				dialog.dismiss();
+
+			}
+		}).show();
 
 	}
+
+	protected void alertSimpleDepartmentListView() 
+	{
+		// TODO Auto-generated method stub
+
+		final CharSequence[] items = { "IT","EnTC" ,"Computer", "Electrical", "Mechanical" };
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(TeacherSendNotificationActivity.this);
+		builder.setTitle("Make your selection");
+		builder.setItems(items, new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int item) {
+
+				BtDepartment.setText(""+items[item].toString());
+				dialog.dismiss();
+
+			}
+		}).show();
+
+	}
+
 
 	private void initialise() {
 
-		spinneryear=(Spinner) findViewById(R.id.spinnergroup_year);
-		spinnerdept=(Spinner) findViewById(R.id.spinnergroup_dept);
-		spinnertype=(Spinner) findViewById(R.id.spinnergroup_type);
+		BtType = (Button)findViewById(R.id.teacher_sendnotification_type_button);
+		BtYear = (Button)findViewById(R.id.teacher_sendnotification_year_button);
+		BtDepartment = (Button)findViewById(R.id.teacher_sendnotification_department_button);
+
+
+		EtMessage = (EditText)findViewById(R.id.teacher_sendnotification_sendmessage_editText);
+		IbSend = (ImageButton)findViewById(R.id.teacher_sendnotification_Send_ImageButton);
+		IbAttachment = (ImageButton)findViewById(R.id.teacher_sendnotification_Attachment_IamgeButton);
 
 	}
 

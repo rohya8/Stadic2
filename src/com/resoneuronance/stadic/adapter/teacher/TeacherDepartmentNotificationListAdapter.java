@@ -1,4 +1,4 @@
-package com.resoneuronance.stadic.adapter.student;
+package com.resoneuronance.stadic.adapter.teacher;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,8 @@ import com.resoneuronance.stadic.R;
 import com.resoneuronance.stadic.R.id;
 import com.resoneuronance.stadic.R.layout;
 import com.resoneuronance.stadic.activity.student.StudentDepartmentNotificationsListActivity;
-import com.resoneuronance.stadic.adapter.student.StudentTeacherNotificationListAdapter.ViewHolder;
+import com.resoneuronance.stadic.activity.teacher.TeacherDepartmentNotificationsListActivity;
+import com.resoneuronance.stadic.adapter.student.StudentDepartmentNotificationListAdapter.ViewHolder;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -19,7 +20,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class StudentDepartmentNotificationListAdapter extends BaseAdapter {
+public class TeacherDepartmentNotificationListAdapter extends BaseAdapter {
 
 	private ArrayList<String> Name,NotifyNo;
 	private ArrayList<Integer> Image;
@@ -27,8 +28,8 @@ public class StudentDepartmentNotificationListAdapter extends BaseAdapter {
 	private LayoutInflater inflater;
 
 
-	public StudentDepartmentNotificationListAdapter(
-			StudentDepartmentNotificationsListActivity departmentNotificationList,
+	public TeacherDepartmentNotificationListAdapter(
+			TeacherDepartmentNotificationsListActivity departmentNotificationList,
 			ArrayList<String> objArrayListName,
 			ArrayList<Integer> objArrayListImage,
 			ArrayList<String> objArrayListNotifyNo) {
@@ -73,10 +74,10 @@ public class StudentDepartmentNotificationListAdapter extends BaseAdapter {
 		if(view == null)
 		{
 			holder = new ViewHolder();
-			view = inflater.inflate(R.layout.activity_student_department_notification_list_adapter, null);
-			holder.NameTv = (TextView)view.findViewById(R.id.studentdepartmentnotificationlist_adapter_textView);
-			holder.Iv=(ImageView)view.findViewById(R.id.studentdepartmentnotificationlist_adapter_imageView);
-			holder.NotifyNoTv=(TextView)view.findViewById(R.id.studentdepartmentnotificationlist_adapter_notificationno_textView);
+			view = inflater.inflate(R.layout.activity_teacher_department_notification_list_adapter, null);
+			holder.NameTv = (TextView)view.findViewById(R.id.teacherdepartmentnotificationlist_adapter_textView);
+			holder.Iv=(ImageView)view.findViewById(R.id.teacherdepartmentnotificationlist_adapter_imageView);
+			holder.NotifyNoTv=(TextView)view.findViewById(R.id.teacherdepartmentnotificationlist_adapter_notificationno_textView);
 			view.setTag(holder);
 		}
 		else

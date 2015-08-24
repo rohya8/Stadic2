@@ -1,4 +1,4 @@
-package com.resoneuronance.stadic.activity.student;
+package com.resoneuronance.stadic.activity.teacher;
 
 import java.util.ArrayList;
 
@@ -7,6 +7,7 @@ import com.resoneuronance.stadic.R.drawable;
 import com.resoneuronance.stadic.R.id;
 import com.resoneuronance.stadic.R.layout;
 import com.resoneuronance.stadic.adapter.student.StudentDepartmentNotificationListAdapter;
+import com.resoneuronance.stadic.adapter.teacher.TeacherDepartmentNotificationListAdapter;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -14,7 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
-public class StudentDepartmentNotificationsListActivity extends Activity {
+public class TeacherDepartmentNotificationsListActivity extends Activity {
 
 	private ListView ListviewDepartmentNotification ;	
 	private ArrayList<String> objArrayListName = new ArrayList<String>();
@@ -22,12 +23,10 @@ public class StudentDepartmentNotificationsListActivity extends Activity {
 	private ArrayList<String> objArrayListNotifyNo = new ArrayList<String>();
 
 
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_student_department_notification_list);
-
+		setContentView(R.layout.activity_teacher_department_notifications_list);
 		objArrayListName.add("Defaulter List");
 		objArrayListName.add("Time Table");
 		objArrayListName.add("Exam Dates ");
@@ -44,9 +43,9 @@ public class StudentDepartmentNotificationsListActivity extends Activity {
 		objArrayListNotifyNo.add("2");
 		objArrayListNotifyNo.add("1");
 
-		ListviewDepartmentNotification = (ListView)findViewById(R.id.studentdepartment_notification_list_listView);
-		StudentDepartmentNotificationListAdapter Adapter = new StudentDepartmentNotificationListAdapter(this, objArrayListName,objArrayListImage,objArrayListNotifyNo);
+		ListviewDepartmentNotification = (ListView)findViewById(R.id.teacherdepartment_notification_list_listView);
+		TeacherDepartmentNotificationListAdapter Adapter = new TeacherDepartmentNotificationListAdapter(this, objArrayListName,objArrayListImage,objArrayListNotifyNo);
 		ListviewDepartmentNotification.setAdapter(Adapter);
-	}
 
+	}
 }

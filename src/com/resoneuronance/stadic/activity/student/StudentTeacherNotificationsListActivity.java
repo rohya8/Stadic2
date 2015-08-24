@@ -21,7 +21,7 @@ public class StudentTeacherNotificationsListActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_teacher_notification_list);
+		setContentView(R.layout.activity_student_teacher_notification_list);
 		
 		for(Notification notification : StudentServerUtils.getTeacherNotifications(this)) {
 			objArrayListName.add(notification.getNotification());
@@ -29,7 +29,7 @@ public class StudentTeacherNotificationsListActivity extends Activity {
 			objArrayListNotifyNo.add("1");
 		}
 
-		ListviewTeacherNotification = (ListView)findViewById(R.id.teacher_notification_list_listView);
+		ListviewTeacherNotification = (ListView)findViewById(R.id.student_teacher_notification_list_listView);
 		StudentTeacherNotificationListAdapter Adapter = new StudentTeacherNotificationListAdapter(this, objArrayListName,objArrayListImage,objArrayListNotifyNo);
 		ListviewTeacherNotification.setAdapter(Adapter);
 	}

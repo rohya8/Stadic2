@@ -36,7 +36,6 @@ public class LoginAsynctask extends AsyncTask<String, String, String> {
 		super.onPreExecute();
 
 		progressdialog.setMessage("Please Wait...");
-		//pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 		progressdialog.setCancelable(false);
 		progressdialog.show();
 	}

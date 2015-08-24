@@ -32,7 +32,6 @@ public class StudentLoginTabActivity extends Activity implements OnClickListener
 
 	private AutoCompleteTextView collegename;
 
-	String abc;
 	private Button btStudentSubmit;
 	private EditText etStudentUserName,etStudentPassword;
 

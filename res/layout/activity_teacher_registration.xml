@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="@dimen/activity_vertical_margin"
-    tools:context="com.resoneuronance.stadic.admin.Registration" >
+    tools:context="${relativePackage}.${activityClass}" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
             android:textSize="22sp" />
 
         <EditText
-            android:id="@+id/registration_username_et"
+            android:id="@+id/teacher_registration_username_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -47,7 +47,7 @@
         </EditText>
 
         <EditText
-            android:id="@+id/registration_emailid_et"
+            android:id="@+id/teacher_registration_emailid_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -65,7 +65,7 @@
         </EditText>
 
         <EditText
-            android:id="@+id/registration_password_et"
+            android:id="@+id/registration_password_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -83,7 +83,7 @@
         </EditText>
 
         <EditText
-            android:id="@+id/registration_retypepassword_et"
+            android:id="@+id/teacher_registration_retypepassword_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -99,22 +99,33 @@
             android:padding="5dp" >
         </EditText>
 
-        <Spinner
-            android:id="@+id/registration_spinnergroup_collegenm"
+        
+        <AutoCompleteTextView
+            android:id="@+id/teacher_registration_collegename_autocomplete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp" />
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded"
+            android:drawableLeft="@drawable/home48"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="College Name"
+            android:padding="5dp" >
+        </AutoCompleteTextView>
 
         <Button
-            android:id="@+id/registration_registerme_bt"
+            android:id="@+id/teacher_registration_register_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/addtchrbutton"
             android:padding="5dp"
-            android:text=" Register Me "
+            android:text=" Register "
             android:textColor="@android:color/white" />
 
         <LinearLayout
@@ -139,7 +150,7 @@
                 android:textSize="18sp" />
 
             <Button
-                android:id="@+id/registeration_login_tv"
+                android:id="@+id/teacher_registeration_login_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

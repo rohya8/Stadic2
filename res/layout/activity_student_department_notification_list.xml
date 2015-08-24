@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
+    android:padding="4dp"
     tools:context="${relativePackage}.${activityClass}" >
 
     <LinearLayout
@@ -16,11 +17,12 @@
         android:orientation="vertical" >
 
         <ListView
-            android:id="@+id/department_notify_list_listview"
+            android:id="@+id/studentdepartment_notification_list_listView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/cardview" >
+            android:background="@drawable/cardview"
+            android:padding="7dp" >
         </ListView>
     </LinearLayout>
 

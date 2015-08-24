@@ -16,9 +16,10 @@
         android:orientation="vertical" >
 
         <ListView
-            android:id="@+id/department_notify_list_listview"
+            android:id="@+id/teacherdepartment_notification_list_listview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="5dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/cardview" >
         </ListView>

@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    android:padding="4dp"
     tools:context="${relativePackage}.${activityClass}" >
 
     <LinearLayout
@@ -17,7 +16,7 @@
         android:orientation="vertical" >
 
         <ListView
-            android:id="@+id/department_notification_list_listView"
+            android:id="@+id/student_teacher_notification_listview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
