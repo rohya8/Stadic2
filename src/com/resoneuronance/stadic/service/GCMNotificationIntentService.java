@@ -7,7 +7,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
@@ -65,16 +64,18 @@ public class GCMNotificationIntentService extends IntentService {
 
 	private void sendNotification(String msg) {
 		Log.d(TAG, "Preparing to send notification...: " + msg);
-		mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
-		PendingIntent contentIntent = PendingIntent.getActivity(this, 0,new Intent(this, StudentTeacherNotificationsListActivity.class), 0);
-
 		Notification notification = new Gson().fromJson(msg, Notification.class);
 		if(notification == null) {
 			return;
 		}
+		StudentUtils.storeCurrentTeacherId(this.getApplicationContext(),notification.getTeacherId());
+		mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+		PendingIntent contentIntent = PendingIntent.getActivity(this, 0,new Intent(this, StudentTeacherNotificationsListActivity.class), 0);
+
 		
+		StudentUtils.addNotification(notification,this.getApplicationContext());
 		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this).setSmallIcon(R.drawable.arrow_up_float)
-				.setContentTitle("Notification from :" + StudentUtils.getTeacherName(notification.getTeacherId()))
+				.setContentTitle("Notification from :" + StudentUtils.getTeacherName(notification.getTeacherId(),this))
 				.setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
 				.setContentText(notification.getNotification());
 

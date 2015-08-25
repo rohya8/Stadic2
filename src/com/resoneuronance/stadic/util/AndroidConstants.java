@@ -10,4 +10,5 @@ public interface AndroidConstants {
 	String LOGGED_IN = "loggedIn";
 	String STUDENT_OBJECT = "student";
 	String STUDENT_PREFERENCES = "studentPreferences";
+	String TEACHER_ID = "currentTeacherId";
 }

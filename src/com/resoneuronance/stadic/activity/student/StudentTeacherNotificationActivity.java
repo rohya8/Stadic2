@@ -66,7 +66,7 @@ public class StudentTeacherNotificationActivity extends Activity {
 				if(CollectionUtils.isNotEmpty(student.getTeachers())) {
 					StudentTeacher teacher = student.getTeachers().get(position);
 					if(teacher != null) {
-						StudentUtils.teacherId = teacher.getId();
+						StudentUtils.storeCurrentTeacherId(getApplicationContext(),teacher.getId());
 					}
 				}
 				startActivity(intent);
