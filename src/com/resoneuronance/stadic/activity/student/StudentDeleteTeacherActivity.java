@@ -23,27 +23,92 @@ import com.resoneuronance.stadic.R.id;
 import com.resoneuronance.stadic.R.layout;
 import com.resoneuronance.stadic.domain.TeacherName;
 
-public class StudentAddTeacherActivity extends Activity {
+public class StudentDeleteTeacherActivity extends Activity {
 
-	ADDTeacherAdapter dataAdapter = null;
+	Button myButton ;
+	DeleteTeacherAdapter dataAdapter = null;
+	ListView listView=null;
 
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_student_add_teacher);
+		setContentView(R.layout.activity_student_delete_teacher);
 
-		displayListView();
+		listView = (ListView) findViewById(R.id.student_delete_teacher_listView);
 
-		checkButtonClick();
+			displayListView();
+
+			DeleteButtonClick();
+
+
+
+			listView.setOnItemClickListener(new OnItemClickListener() {
+				public void onItemClick(AdapterView<?> parent, View view,
+						int position, long id) {
+					// When clicked, show a toast with the TextView text
+					TeacherName teacher = (TeacherName) parent.getItemAtPosition(position);
+
+				}
+			});
+
+
 
 	}
 
-	private void displayListView() 
-	{
+
+	private void DeleteButtonClick() {
+
+		myButton = (Button) findViewById(R.id.student_delete_teacher_button);
+		myButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				StringBuffer responseText = new StringBuffer();
+
+				responseText.append("following deleted...\n");
+
+				ArrayList<TeacherName> teacherList = dataAdapter.teacherList;
+				for(int i=0;i<teacherList.size();i++){
+					TeacherName teacher = teacherList.get(i);
+					System.out.println(" data "+teacher.getName()+" selected " + teacher.isSelected());
+					if(teacher.isSelected()){
+						teacherList.remove(i);
+						responseText.append("\n" + teacher.getName());
+
+					}
+				}
+
+				Toast.makeText(getApplicationContext(),
+						responseText, Toast.LENGTH_SHORT).show();
+
+				redisplayListView(teacherList);
+			}
+
+
+		});
+
+	}
+
+
+	private void redisplayListView(ArrayList<TeacherName> teacherList) {
+
+
+		dataAdapter = new DeleteTeacherAdapter(this,
+				R.layout.activity_add_student_teacher_adapter, teacherList);
+		ListView listView = (ListView) findViewById(R.id.student_delete_teacher_listView);
+
+		listView.setAdapter(dataAdapter);
+
+	}
+
+
+
+
+	private void displayListView() {
 
 		//Array list of countries
 		ArrayList<TeacherName> teacherList = new ArrayList<TeacherName>();
-
 		TeacherName teachernm = new TeacherName("Rajesh Mangale",false);
 		teacherList.add(teachernm);
 		teachernm = new TeacherName("Rohit",false);
@@ -57,35 +122,26 @@ public class StudentAddTeacherActivity extends Activity {
 		teachernm = new TeacherName("rW",false);
 		teacherList.add(teachernm);
 
-		//create an ArrayAdaptar from the String Array
-		dataAdapter = new ADDTeacherAdapter(this,
-				R.layout.activity_add_student_teacher_adapter, teacherList);
-		ListView listView = (ListView) findViewById(R.id.student_add_teacher_listView);
 
-		listView.setTextFilterEnabled(true);
+		//create an ArrayAdaptar from the String Array
+		dataAdapter = new DeleteTeacherAdapter(this,
+				R.layout.activity_add_student_teacher_adapter, teacherList);
+
+		// Assign adapter to ListView
+
 		listView.setAdapter(dataAdapter);
 
 
 
-		listView.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				// When clicked, show a toast with the TextView text
-				TeacherName teacher = (TeacherName) parent.getItemAtPosition(position);
-
-			}
-		});
 
 	}
 
-	private class ADDTeacherAdapter extends ArrayAdapter<TeacherName> 
-	{
+	private class DeleteTeacherAdapter extends ArrayAdapter<TeacherName> {
 
 		private ArrayList<TeacherName> teacherList;
 
-		public ADDTeacherAdapter(Context context, int textViewResourceId, 
-				ArrayList<TeacherName> teacherList) 
-		{
+		public DeleteTeacherAdapter(Context context, int textViewResourceId, 
+				ArrayList<TeacherName> teacherList) {
 			super(context, textViewResourceId, teacherList);
 			this.teacherList = new ArrayList<TeacherName>();
 			this.teacherList.addAll(teacherList);
@@ -131,35 +187,9 @@ public class StudentAddTeacherActivity extends Activity {
 
 			return convertView;
 
+
+
 		}
-
-	}
-
-	private void checkButtonClick() {
-
-
-		Button myButton = (Button) findViewById(R.id.student_add_teacher_button);
-		myButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-
-				StringBuffer responseText = new StringBuffer();
-				responseText.append("following selected...\n");
-
-				ArrayList<TeacherName> teacherList = dataAdapter.teacherList;
-				for(int i=0;i<teacherList.size();i++){
-					TeacherName teacher = teacherList.get(i);
-					if(teacher.isSelected()){
-						responseText.append("\n" + teacher.getName());
-					}
-				}
-
-				Toast.makeText(getApplicationContext(),
-						responseText, Toast.LENGTH_SHORT).show();
-
-			}
-		});
 
 	}
 

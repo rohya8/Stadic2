@@ -1,11 +1,13 @@
 package com.resoneuronance.stadic.activity.student;
 
+
 import java.util.ArrayList;
 
 import com.resoneuronance.stadic.R;
 import com.resoneuronance.stadic.R.id;
 import com.resoneuronance.stadic.R.layout;
 import com.resoneuronance.stadic.domain.DepartmentName;
+
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -22,25 +24,92 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class StudentAddDepartmentActivity extends Activity {
+public class StudentDeleteDepartmentActivity extends Activity {
 
-	AddDepartmentAdapter dataAdapter = null;
+	Button myButton ;
+	DeleteDepartmentAdapter dataAdapter = null;
+	ListView listView=null;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_student_add_department);
+		setContentView(R.layout.activity_student_delete_department);
+
+		listView = (ListView) findViewById(R.id.student_delete_department_listView);
+
 		displayListView();
 
-		checkButtonClick();
+		DeleteButtonClick();
+
+
+
+		listView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// When clicked, show a toast with the TextView text
+				DepartmentName department = (DepartmentName) parent.getItemAtPosition(position);
+
+			}
+		});
+
+
 
 	}
 
-	private void displayListView() 
-	{
 
+	private void DeleteButtonClick() {
+
+		myButton = (Button) findViewById(R.id.student_delete_department_button);
+		myButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				StringBuffer responseText = new StringBuffer();
+
+				responseText.append("following deleted...\n");
+
+				ArrayList<DepartmentName> departmentList = dataAdapter.departmentList;
+				for(int i=0;i<departmentList.size();i++){
+					DepartmentName department = departmentList.get(i);
+					System.out.println(" data "+department.getName()+" selected " + department.isSelected());
+					if(department.isSelected()){
+						departmentList.remove(i);
+						responseText.append("\n" + department.getName());
+
+					}
+				}
+
+				Toast.makeText(getApplicationContext(),
+						responseText, Toast.LENGTH_SHORT).show();
+
+				redisplayListView(departmentList);
+			}
+
+
+		});
+
+	}
+
+
+	private void redisplayListView(ArrayList<DepartmentName> departmentList) {
+
+
+		dataAdapter = new DeleteDepartmentAdapter(this,
+				R.layout.activity_add_student_teacher_adapter, departmentList);
+		ListView listView = (ListView) findViewById(R.id.student_delete_department_listView);
+
+		listView.setAdapter(dataAdapter);
+
+	}
+
+
+
+
+	private void displayListView() {
+
+		//Array list of countries
 		ArrayList<DepartmentName> departmentList = new ArrayList<DepartmentName>();
-
 		DepartmentName departmentnm = new DepartmentName("Computer",false);
 		departmentList.add(departmentnm);
 		departmentnm = new DepartmentName("Information Technology",false);
@@ -54,34 +123,26 @@ public class StudentAddDepartmentActivity extends Activity {
 		departmentnm = new DepartmentName("Chemical",false);
 		departmentList.add(departmentnm);
 
-		dataAdapter = new AddDepartmentAdapter(this,
-				R.layout.activity_add_student_teacher_adapter, departmentList);
-		ListView listView = (ListView) findViewById(R.id.student_add_department_listView);
 
-		listView.setTextFilterEnabled(true);
+		//create an ArrayAdaptar from the String Array
+		dataAdapter = new DeleteDepartmentAdapter(this,
+				R.layout.activity_add_student_teacher_adapter, departmentList);
+
+		// Assign adapter to ListView
+
 		listView.setAdapter(dataAdapter);
 
 
 
-		listView.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				// When clicked, show a toast with the TextView text
-				DepartmentName department = (DepartmentName) parent.getItemAtPosition(position);
-
-			}
-		});
 
 	}
 
-	private class AddDepartmentAdapter extends ArrayAdapter<DepartmentName> 
-	{
+	private class DeleteDepartmentAdapter extends ArrayAdapter<DepartmentName> {
 
 		private ArrayList<DepartmentName> departmentList;
 
-		public AddDepartmentAdapter(Context context, int textViewResourceId, 
-				ArrayList<DepartmentName> departmentList) 
-		{
+		public DeleteDepartmentAdapter(Context context, int textViewResourceId, 
+				ArrayList<DepartmentName> departmentList) {
 			super(context, textViewResourceId, departmentList);
 			this.departmentList = new ArrayList<DepartmentName>();
 			this.departmentList.addAll(departmentList);
@@ -110,8 +171,8 @@ public class StudentAddDepartmentActivity extends Activity {
 				holder.name.setOnClickListener( new View.OnClickListener() {  
 					public void onClick(View v) {  
 						CheckBox cb = (CheckBox) v ;  
-						DepartmentName teacher = (DepartmentName) cb.getTag();  
-						teacher.setSelected(cb.isChecked());
+						DepartmentName department = (DepartmentName) cb.getTag();  
+						department.setSelected(cb.isChecked());
 
 					}  
 				});  
@@ -120,44 +181,17 @@ public class StudentAddDepartmentActivity extends Activity {
 				holder = (ViewHolder) convertView.getTag();
 			}
 
-			DepartmentName teacher = departmentList.get(position);
-			holder.code.setText(teacher.getName());
-			holder.name.setChecked(teacher.isSelected());
-			holder.name.setTag(teacher);
+			DepartmentName department = departmentList.get(position);
+			holder.code.setText(department.getName());
+			holder.name.setChecked(department.isSelected());
+			holder.name.setTag(department);
 
 			return convertView;
+
+
 
 		}
 
 	}
 
-	private void checkButtonClick() {
-
-
-		Button myButton = (Button) findViewById(R.id.student_add_department_button);
-		myButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-
-				StringBuffer responseText = new StringBuffer();
-				responseText.append("following selected...\n");
-
-				ArrayList<DepartmentName> teacherList = dataAdapter.departmentList;
-				for(int i=0;i<teacherList.size();i++){
-					DepartmentName teacher = teacherList.get(i);
-					if(teacher.isSelected()){
-						responseText.append("\n" + teacher.getName());
-					}
-				}
-
-				Toast.makeText(getApplicationContext(),
-						responseText, Toast.LENGTH_SHORT).show();
-
-			}
-		});
-
-	}
-
 }
-

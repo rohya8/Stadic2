@@ -42,5 +42,9 @@
     <string name="title_activity_teacher_department_notifications_list">Department Notifications List</string>
     <string name="title_activity_teacher_department_notification_list_adapter">TeacherDepartmentNotificationListAdapter</string>
     <string name="title_activity_teacher_registration">TeacherRegistrationActivity</string>
+    <string name="title_activity_student_delete_teacher">Delete Teacher</string>
+    <string name="title_activity_student_add_teacher">Add Teacher</string>
+    <string name="title_activity_student_add_department">Add Department</string>
+    <string name="title_activity_student_delete_department">Delete Department</string>
 
 </resources>

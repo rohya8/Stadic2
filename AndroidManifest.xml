@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="8"
         android:targetSdkVersion="21" />
     <!-- GCM connects to Internet Services. -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -47,7 +47,7 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>
             -->
         </activity>
         <activity
@@ -87,20 +87,12 @@
             android:label="@string/title_activity_teacher_notify" >
         </activity>
         <activity
-            android:name=".activity.student.StudentAddDepartmentActivity"
+            android:name=".activity.student.StudentDepartmentActivity"
             android:label="@string/title_activity_add_stud_department" >
         </activity>
         <activity
-            android:name=".adapter.student.StudentAddDepartmentAdapter"
-            android:label="@string/title_activity_add_stud__department_customclass" >
-        </activity>
-        <activity
-            android:name=".activity.student.StudentAddTeacherActivity"
+            android:name=".activity.student.StudentTeacherActivity"
             android:label="@string/title_activity_add_stud_teacher" >
-        </activity>
-        <activity
-            android:name=".adapter.student.StudentAddTeacherAdapter"
-            android:label="@string/title_activity_add_stud_teacher_customclass" >
         </activity>
 
         <!-- to be changed -->
@@ -127,6 +119,11 @@
         <activity
             android:name=".activity.student.StudentDepartmentNotificationsListActivity"
             android:label="@string/title_activity_department_notification_list" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".adapter.student.StudentDepartmentNotificationAdapter"
@@ -155,11 +152,6 @@
         <activity
             android:name=".activity.teacher.TeacherMainActivity"
             android:label="@string/title_activity_main_teacher_profile" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <receiver
@@ -203,8 +195,24 @@
             android:label="@string/title_activity_teacher_department_notification_list_adapter" >
         </activity>
         <activity
-            android:name=".TeacherRegistrationActivity"
+            android:name="com.resoneuronance.stadic.activity.teacher.TeacherRegistrationActivity"
             android:label="@string/title_activity_teacher_registration" >
+        </activity>
+        <activity
+            android:name="com.resoneuronance.stadic.activity.student.StudentDeleteTeacherActivity"
+            android:label="@string/title_activity_student_delete_teacher" >
+        </activity>
+        <activity
+            android:name="com.resoneuronance.stadic.activity.student.StudentAddTeacherActivity"
+            android:label="@string/title_activity_student_add_teacher" >
+        </activity>
+        <activity
+            android:name="com.resoneuronance.stadic.activity.student.StudentAddDepartmentActivity"
+            android:label="@string/title_activity_student_add_department" >
+        </activity>
+        <activity
+            android:name="com.resoneuronance.stadic.activity.student.StudentDeleteDepartmentActivity"
+            android:label="@string/title_activity_student_delete_department" >
         </activity>
     </application>
 

@@ -18,18 +18,18 @@
         android:padding="10dp" >
 
         <Button
-            android:id="@+id/student_profile_Addteachr_button"
+            android:id="@+id/student_profile_teachr_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/addtchrbutton"
             android:padding="10dp"
-            android:text="Add Teacher"
+            android:text="Teacher"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/student_profile_Adddeparment_button"
+            android:id="@+id/student_profile_deparment_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
@@ -37,7 +37,7 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/adddeptbutton"
             android:padding="10dp"
-            android:text="Add Department"
+            android:text="Department"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
     </LinearLayout>

@@ -15,7 +15,7 @@ import android.widget.ListView;
 
 public class StudentOptionsTabActivity extends Activity implements OnClickListener {
 
-	private Button BtAddTeacher,BtAddDept;
+	private Button BtTeacher,BtDept;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +24,15 @@ public class StudentOptionsTabActivity extends Activity implements OnClickListen
 
 		initialise();
 
-		BtAddDept.setOnClickListener(this);
-		BtAddTeacher.setOnClickListener(this);
+		BtDept.setOnClickListener(this);
+		BtTeacher.setOnClickListener(this);
 
 	}
 
 	private void initialise() {
 
-		BtAddTeacher=(Button) findViewById(R.id.student_profile_Addteachr_button);
-		BtAddDept=(Button) findViewById(R.id.student_profile_Adddeparment_button);
+		BtTeacher=(Button) findViewById(R.id.student_profile_teachr_button);
+		BtDept=(Button) findViewById(R.id.student_profile_deparment_button);
 
 	}
 
@@ -42,13 +42,13 @@ public class StudentOptionsTabActivity extends Activity implements OnClickListen
 
 		switch(view.getId())
 		{
-		case R.id.student_profile_Adddeparment_button:
-			Intent i = new Intent(StudentOptionsTabActivity.this,StudentAddDepartmentActivity.class);
+		case R.id.student_profile_deparment_button:
+			Intent i = new Intent(StudentOptionsTabActivity.this,StudentDepartmentActivity.class);
 			startActivity(i);
 			break;
 
-		case R.id.student_profile_Addteachr_button:
-			Intent i1 = new Intent(StudentOptionsTabActivity.this,StudentAddTeacherActivity.class);
+		case R.id.student_profile_teachr_button:
+			Intent i1 = new Intent(StudentOptionsTabActivity.this,StudentTeacherActivity.class);
 			startActivity(i1);
 
 			break;

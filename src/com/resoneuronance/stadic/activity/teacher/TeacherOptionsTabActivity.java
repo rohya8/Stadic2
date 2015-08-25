@@ -3,8 +3,8 @@ package com.resoneuronance.stadic.activity.teacher;
 import com.resoneuronance.stadic.R;
 import com.resoneuronance.stadic.R.id;
 import com.resoneuronance.stadic.R.layout;
-import com.resoneuronance.stadic.activity.student.StudentAddDepartmentActivity;
-import com.resoneuronance.stadic.activity.student.StudentAddTeacherActivity;
+import com.resoneuronance.stadic.activity.student.StudentDepartmentActivity;
+import com.resoneuronance.stadic.activity.student.StudentTeacherActivity;
 import com.resoneuronance.stadic.activity.student.StudentOptionsTabActivity;
 
 import android.app.Activity;
