@@ -26,7 +26,9 @@ public class StudentDepartmentNotificationsListActivity extends Activity {
 	private ArrayList<String> objArrayListName = new ArrayList<String>();
 	private ArrayList<Integer> objArrayListImage = new ArrayList<Integer>();
 	private ArrayList<String> objArrayListNotifyNo = new ArrayList<String>();
-	private String downloadUrl = "http://techstory.in/wp-content/uploads/2015/05/sachin4.jpg";
+	private String downloadUrl = "http://pngimg.com/upload/star_PNG1599.png";
+	private String Filename1="STADIC1.png";
+
 
 
 	@Override
@@ -62,7 +64,7 @@ public class StudentDepartmentNotificationsListActivity extends Activity {
 				
 				switch (position) {
 				case 1:
-					new ImageDownloadAsynctask(StudentDepartmentNotificationsListActivity.this).execute(downloadUrl);
+					new ImageDownloadAsynctask(StudentDepartmentNotificationsListActivity.this).execute(downloadUrl,Filename1);
 					
 					break;
 

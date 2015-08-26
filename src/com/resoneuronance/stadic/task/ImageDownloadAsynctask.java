@@ -9,8 +9,12 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
+import android.R;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -24,11 +28,12 @@ import android.widget.Toast;
 public class ImageDownloadAsynctask extends AsyncTask<String, Void, Bitmap> {
 
 	private Context mcont;
+	private ImageView ImageDownload;
 	ProgressDialog mProgressDialog;
 	Bitmap bitmap;
-	private String Filename;
-	File mediaFile;
-	
+	private static int flag=0;
+	private String Filenameee;
+
 	public ImageDownloadAsynctask(Context context) {
 		mcont=context;
 	}
@@ -42,46 +47,47 @@ public class ImageDownloadAsynctask extends AsyncTask<String, Void, Bitmap> {
 		mProgressDialog.setMessage("Loading...");
 		mProgressDialog.setCancelable(false);
 		mProgressDialog.show();
-		System.out.println("roh onpre");
+	}
+
+	public void showImage() {
+		
+		Dialog dialog = new Dialog(mcont);
+		dialog.setContentView(com.resoneuronance.stadic.R.layout.maindialog);
+		dialog.setTitle("Assignment");
+		dialog.setCancelable(true);
+		//there are a lot of settings for dialog
+
+		//set up image view
+		ImageView img = (ImageView) dialog.findViewById(com.resoneuronance.stadic.R.id.ImageView01);
+		img.setImageBitmap(bitmap);
+		dialog.show();
 	}
 
 
 	@Override
 	protected void onPostExecute(Bitmap result) {
 
-		//ImageDownload.setImageBitmap(result);
-		//mProgressDialog.dismiss();
 
-		if(result != null){
+		if(flag==1){
 
-			System.out.println("roh post1");
-			storeImage(result);
+			//ImageDownload.setImageBitmap(result);
 
+			//storeImage(result);
+			saveToInternalSorage(result);
+			showImage();
 			mProgressDialog.dismiss();
-
-			Intent intent = new Intent();
-			intent.setAction(Intent.ACTION_VIEW);
-
-			/*
+		}
+		else if(flag==2)
+		{
+			mProgressDialog.dismiss();
+			showImage();
 			//////
-			 * 
-			file is downloaded
-			
-							File path is shown but not file
-							 
-			
+			//////	It does show dialog of existing but no image 
+			/////    search how we can get existing image and show it
 			/////
-			*/
-			
-			String path=Environment.getExternalStorageDirectory()
-					+ "/dl/myfolder/"+Filename;
-			intent.setDataAndType(Uri.parse(path), "image/*");
-			mcont.startActivity(intent);
-
-
-
-		}else{
-			System.out.println("roh onpost2");
+			Toast.makeText(mcont, "Image already exists  ", Toast.LENGTH_SHORT).show();
+		}
+		else if(flag==0){
 			mProgressDialog.dismiss();
 			Toast.makeText(mcont, "Image Does Not exist or Network Error ", Toast.LENGTH_SHORT).show();
 
@@ -92,68 +98,102 @@ public class ImageDownloadAsynctask extends AsyncTask<String, Void, Bitmap> {
 	@Override
 	protected Bitmap doInBackground(String... arg0) {
 
-		try {
-			InputStream input = new java.net.URL(arg0[0]).openStream();
-			bitmap = BitmapFactory.decodeStream(input);
+		flag=0;
+		Filenameee=arg0[1];
+		System.out.println("roh 1 !");		
+		ContextWrapper cw = new ContextWrapper(mcont);
+		// path to /data/data/yourapp/app_data/imageDir
+		File directory = cw.getDir("data", Context.MODE_PRIVATE);
+		File mypath=new File(directory,Filenameee);
+		System.out.println("roh 2 !");
+		if(!mypath.exists())
+		{
+			flag=1;			
+			try {
 
-			//bitmap = BitmapFactory.decodeStream((InputStream)new URL(arg0[0]).getContent());
+				InputStream input = new java.net.URL(arg0[0]).openStream();
+				bitmap = BitmapFactory.decodeStream(input);
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		System.out.println("roh doin");
-		return bitmap;
-	}
+				//bitmap = BitmapFactory.decodeStream((InputStream)new URL(arg0[0]).getContent());
 
-
-	private void storeImage(Bitmap image) {
-
-		createdirectory();
-
-		File pictureFile = getOutputMediaFile();
-		if (pictureFile == null) {
-			Log.d("abc",
-					"Error creating media file, check storage permissions: ");// e.getMessage());
-			return;
-		} 
-		try {
-			FileOutputStream fos = new FileOutputStream(pictureFile);
-			image.compress(Bitmap.CompressFormat.PNG, 100, fos);
-			fos.close();
-		} catch (FileNotFoundException e) {
-			Log.d("abc", "File not found: " + e.getMessage());
-		} catch (IOException e) {
-			Log.d("abc", "Error accessing file: " + e.getMessage());
-		}  
-	}
-
-
-	private void createdirectory() {
-
-		File direct = new File(Environment.getExternalStorageDirectory()+"/dl/myfolder");
-
-		if(!direct.exists()) {
-			if(direct.mkdir()); //directory is created;
-		}
-
-	}
-
-	private  File getOutputMediaFile(){
-		File mediaStorageDir = new File(Environment.getExternalStorageDirectory()
-				+ "/dl/myfolder"); 
-
-		// Create the storage directory if it does not exist
-		if (! mediaStorageDir.exists()){
-			if (! mediaStorageDir.mkdirs()){
-				return null;
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-		} 
-		// Create a media file name
-		String timeStamp = new SimpleDateFormat("ddMMyyyy_HHmm").format(new Date());
-		File mediaFile;
-		String mImageName="STADIC_"+ timeStamp +".png";
-		Filename=mImageName;
-		mediaFile = new File(mediaStorageDir.getPath() + File.separator + mImageName);
-		return mediaFile;
-	} 
+
+		}
+		else
+		{
+			flag=2;
+			//Toast.makeText(mcont, "exists ",Toast.LENGTH_LONG ).show();
+			bitmap=null;
+		}
+		return bitmap;	
+	}
+
+	private String saveToInternalSorage(Bitmap bitmapImage){
+
+		if(bitmapImage!=null)
+		{
+			FileOutputStream fos = null;
+
+			ContextWrapper cw = new ContextWrapper(mcont);
+			// path to /data/data/yourapp/app_data/imageDir
+			File directory = cw.getDir("data", Context.MODE_PRIVATE);
+
+			if (!directory.exists()) {
+				try {
+					directory.createNewFile();
+					directory.mkdir();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+			// Create imageDir
+			File mypath=new File(directory,Filenameee);
+
+			if(!mypath.exists())
+			{
+
+				try {           
+
+					fos = new FileOutputStream(mypath);
+					Toast.makeText(mcont, ""+mypath,Toast.LENGTH_LONG ).show();
+					bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
+					fos.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+
+			/*		
+			 * For TEXT FILE
+			 * 
+		OutputStreamWriter out;
+		try {
+		    ContextWrapper cw = new ContextWrapper(this);
+		    File path = cw.getDir("myfolder", Context.MODE_PRIVATE);
+		    if (!path.exists()) {
+		        path.createNewFile();
+		        path.mkdir();
+		    }
+		    File mypath=new File(path,"myfile.txt");
+		    if (!mypath.exists()) {
+		        out = new OutputStreamWriter(openFileOutput( mypath.getAbsolutePath() , MODE_PRIVATE));
+		        out.write("test");
+		        out.close();
+		    }
+		}
+			 */
+
+			return directory.getAbsolutePath();
+		}
+		else
+			return null;
+
+	}
+
+
+
+
 }
