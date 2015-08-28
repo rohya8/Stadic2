@@ -1,6 +1,7 @@
 package com.resoneuronance.stadic.task;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -50,7 +51,7 @@ public class ImageDownloadAsynctask extends AsyncTask<String, Void, Bitmap> {
 	}
 
 	public void showImage() {
-		
+
 		Dialog dialog = new Dialog(mcont);
 		dialog.setContentView(com.resoneuronance.stadic.R.layout.maindialog);
 		dialog.setTitle("Assignment");
@@ -70,7 +71,7 @@ public class ImageDownloadAsynctask extends AsyncTask<String, Void, Bitmap> {
 
 		if(flag==1){
 
-			//ImageDownload.setImageBitmap(result);
+			ImageDownload.setImageBitmap(result);
 
 			//storeImage(result);
 			saveToInternalSorage(result);
@@ -79,19 +80,17 @@ public class ImageDownloadAsynctask extends AsyncTask<String, Void, Bitmap> {
 		}
 		else if(flag==2)
 		{
-			mProgressDialog.dismiss();
+
 			showImage();
-			//////
-			//////	It does show dialog of existing but no image 
-			/////    search how we can get existing image and show it
-			/////
-			Toast.makeText(mcont, "Image already exists  ", Toast.LENGTH_SHORT).show();
+			mProgressDialog.dismiss();
+
 		}
 		else if(flag==0){
 			mProgressDialog.dismiss();
 			Toast.makeText(mcont, "Image Does Not exist or Network Error ", Toast.LENGTH_SHORT).show();
 
 		}
+
 
 	}
 
@@ -100,12 +99,10 @@ public class ImageDownloadAsynctask extends AsyncTask<String, Void, Bitmap> {
 
 		flag=0;
 		Filenameee=arg0[1];
-		System.out.println("roh 1 !");		
 		ContextWrapper cw = new ContextWrapper(mcont);
 		// path to /data/data/yourapp/app_data/imageDir
 		File directory = cw.getDir("data", Context.MODE_PRIVATE);
 		File mypath=new File(directory,Filenameee);
-		System.out.println("roh 2 !");
 		if(!mypath.exists())
 		{
 			flag=1;			
@@ -114,7 +111,6 @@ public class ImageDownloadAsynctask extends AsyncTask<String, Void, Bitmap> {
 				InputStream input = new java.net.URL(arg0[0]).openStream();
 				bitmap = BitmapFactory.decodeStream(input);
 
-				//bitmap = BitmapFactory.decodeStream((InputStream)new URL(arg0[0]).getContent());
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -124,8 +120,7 @@ public class ImageDownloadAsynctask extends AsyncTask<String, Void, Bitmap> {
 		else
 		{
 			flag=2;
-			//Toast.makeText(mcont, "exists ",Toast.LENGTH_LONG ).show();
-			bitmap=null;
+			bitmap=getImageBitmap(Filenameee);
 		}
 		return bitmap;	
 	}
@@ -192,6 +187,26 @@ public class ImageDownloadAsynctask extends AsyncTask<String, Void, Bitmap> {
 			return null;
 
 	}
+
+	public Bitmap getImageBitmap(String name){
+
+		try {
+			ContextWrapper cw = new ContextWrapper(mcont);
+			// path to /data/data/yourapp/app_data/imageDir
+			File directory = cw.getDir("data", Context.MODE_PRIVATE);
+			File mypath=new File(directory,name);
+
+			bitmap = BitmapFactory.decodeStream(new FileInputStream(mypath));
+
+		}
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		}
+		return bitmap;
+
+	}
+
 
 
 
