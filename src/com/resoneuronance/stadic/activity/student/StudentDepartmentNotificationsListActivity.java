@@ -2,23 +2,17 @@ package com.resoneuronance.stadic.activity.student;
 
 import java.util.ArrayList;
 
-import com.resoneuronance.stadic.R;
-import com.resoneuronance.stadic.R.drawable;
-import com.resoneuronance.stadic.R.id;
-import com.resoneuronance.stadic.R.layout;
-import com.resoneuronance.stadic.adapter.student.StudentDepartmentNotificationListAdapter;
-import com.resoneuronance.stadic.task.ImageDownloadAsynctask;
-
 import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+
+import com.resoneuronance.stadic.R;
+import com.resoneuronance.stadic.adapter.student.StudentDepartmentNotificationListAdapter;
+import com.resoneuronance.stadic.task.ImageDownloadAsynctask;
 
 public class StudentDepartmentNotificationsListActivity extends Activity {
 

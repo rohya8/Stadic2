@@ -1,5 +1,6 @@
 package com.resoneuronance.stadic.util;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,7 +16,6 @@ import org.springframework.web.client.RestTemplate;
 
 import android.app.Activity;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.resoneuronance.campus.web.bo.domain.Student;
@@ -26,6 +26,7 @@ import com.resoneuronance.campus.web.util.Constants;
 
 public class CoreServerUtils {
 
+	private static final String IMAGE_TYPE_IMG = "IMAGE";
 	private static String GET_COLLEGES_URL = "http://192.168.1.104:8080/CampusWebApp/getAllColleges";
 	private static String SHARE_REG_ID_URL = "http://192.168.1.104:8080/CampusWebApp/shareStudentRegId?regId={regId}";
 	
@@ -56,7 +57,18 @@ public class CoreServerUtils {
 		RestTemplate restTemplate = new RestTemplate();
 		restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
 		ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity,String.class,uriVariables);
-		Log.d("Colleges Received ..", responseEntity.getBody());
+		Log.d("Response Received ..", responseEntity.getBody());
+		return responseEntity;
+	}
+	
+	public static ResponseEntity<InputStream> postServerCallForFile(String url,Map<String, Object> uriVariables) {
+		HttpHeaders requestHeaders = new HttpHeaders();
+		//requestHeaders.setContentType(new MediaType("text", "xml"));
+		HttpEntity<String> requestEntity = new HttpEntity<String>(requestHeaders);
+		RestTemplate restTemplate = new RestTemplate();
+		restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
+		ResponseEntity<InputStream> responseEntity = restTemplate.exchange(url, HttpMethod.POST, requestEntity,InputStream.class,uriVariables);
+		Log.d("Server Call","File Received ..");
 		return responseEntity;
 	}
 	
@@ -76,6 +88,40 @@ public class CoreServerUtils {
 				Log.d(AndroidConstants.TAG, "Shared Reg ID!!");
 			}
 		}
+		
+	}
+	
+	public static String parseFileType(String fileUri) {
+		if(fileUri == null) {
+			return null;
+		}
+		String[] parts = fileUri.split(".");
+		if(parts == null) {
+			return null;
+		}
+		if(imageTypes().contains(parts[parts.length])) {
+			return IMAGE_TYPE_IMG;
+		}
+		if(fileTypes().contains(parts[parts.length])) {
+			return "FILE";
+		}
+		return null;
+		
+	}
+	
+	private static List<String> fileTypes() {
+		List<String> fileTypes = new ArrayList<String>();
+		fileTypes.add("pdf");
+		fileTypes.add("txt");
+		return fileTypes;
+	}
+
+	private static List<String> imageTypes() {
+		List<String> imageTypes = new ArrayList<String>();
+		imageTypes.add("png");
+		imageTypes.add("jpeg");
+		imageTypes.add("jpg");
+		return imageTypes;
 		
 	}
 	

@@ -27,6 +27,38 @@ public class StudentDepartmentNotificationListAdapter extends BaseAdapter {
 	private LayoutInflater inflater;
 
 
+	public ArrayList<String> getName() {
+		return Name;
+	}
+
+	public void setName(ArrayList<String> name) {
+		Name = name;
+	}
+
+	public ArrayList<String> getNotifyNo() {
+		return NotifyNo;
+	}
+
+	public void setNotifyNo(ArrayList<String> notifyNo) {
+		NotifyNo = notifyNo;
+	}
+
+	public ArrayList<Integer> getImage() {
+		return Image;
+	}
+
+	public void setImage(ArrayList<Integer> image) {
+		Image = image;
+	}
+
+	public LayoutInflater getInflater() {
+		return inflater;
+	}
+
+	public void setInflater(LayoutInflater inflater) {
+		this.inflater = inflater;
+	}
+
 	public StudentDepartmentNotificationListAdapter(
 			StudentDepartmentNotificationsListActivity departmentNotificationList,
 			ArrayList<String> objArrayListName,

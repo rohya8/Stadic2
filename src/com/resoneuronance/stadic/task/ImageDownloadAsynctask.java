@@ -6,34 +6,27 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
+import com.resoneuronance.stadic.util.StudentServerUtils;
 
-import android.R;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.ContextWrapper;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Environment;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 public class ImageDownloadAsynctask extends AsyncTask<String, Void, Bitmap> {
 
 	private Context mcont;
-	private ImageView ImageDownload;
+	private ImageView imageDownload;
 	ProgressDialog mProgressDialog;
 	Bitmap bitmap;
 	private static int flag=0;
-	private String Filenameee;
+	private String fileName;
 
 	public ImageDownloadAsynctask(Context context) {
 		mcont=context;
@@ -59,8 +52,8 @@ public class ImageDownloadAsynctask extends AsyncTask<String, Void, Bitmap> {
 		//there are a lot of settings for dialog
 
 		//set up image view
-		ImageView img = (ImageView) dialog.findViewById(com.resoneuronance.stadic.R.id.ImageView01);
-		img.setImageBitmap(bitmap);
+		imageDownload = (ImageView) dialog.findViewById(com.resoneuronance.stadic.R.id.ImageView01);
+		imageDownload.setImageBitmap(bitmap);
 		dialog.show();
 	}
 
@@ -71,7 +64,7 @@ public class ImageDownloadAsynctask extends AsyncTask<String, Void, Bitmap> {
 
 		if(flag==1){
 
-			ImageDownload.setImageBitmap(result);
+			//imageDownload.setImageBitmap(result);
 
 			//storeImage(result);
 			saveToInternalSorage(result);
@@ -98,17 +91,18 @@ public class ImageDownloadAsynctask extends AsyncTask<String, Void, Bitmap> {
 	protected Bitmap doInBackground(String... arg0) {
 
 		flag=0;
-		Filenameee=arg0[1];
+		fileName=arg0[1];
 		ContextWrapper cw = new ContextWrapper(mcont);
 		// path to /data/data/yourapp/app_data/imageDir
 		File directory = cw.getDir("data", Context.MODE_PRIVATE);
-		File mypath=new File(directory,Filenameee);
+		File mypath=new File(directory,fileName);
 		if(!mypath.exists())
 		{
 			flag=1;			
 			try {
 
 				InputStream input = new java.net.URL(arg0[0]).openStream();
+				//InputStream input = StudentServerUtils.downloadDocument(Integer.parseInt(fileName));
 				bitmap = BitmapFactory.decodeStream(input);
 
 
@@ -120,7 +114,7 @@ public class ImageDownloadAsynctask extends AsyncTask<String, Void, Bitmap> {
 		else
 		{
 			flag=2;
-			bitmap=getImageBitmap(Filenameee);
+			bitmap=getImageBitmap(fileName);
 		}
 		return bitmap;	
 	}
@@ -145,7 +139,7 @@ public class ImageDownloadAsynctask extends AsyncTask<String, Void, Bitmap> {
 			}
 
 			// Create imageDir
-			File mypath=new File(directory,Filenameee);
+			File mypath=new File(directory,fileName);
 
 			if(!mypath.exists())
 			{

@@ -81,10 +81,11 @@ public class StudentUtils implements AndroidConstants {
 		if(CollectionUtils.isEmpty(student.getTeachers())) {
 			return;
 		}
-		for(StudentTeacher teacher:getCurrentStudent(ctx).getTeachers()) {
+		for(StudentTeacher teacher:student.getTeachers()) {
 			if(teacher!=null && notification.getTeacherId() == teacher.getId()) {
-				teacher.getNotifications().add(notification);
-				return;
+				teacher.getNotifications().add(0,notification);
+				Log.d(TAG, "Notification Added!!");
+				break;
 			}
 		}
 		storeCurrentStudent(ctx, new Gson().toJson(student));
